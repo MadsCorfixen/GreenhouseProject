@@ -1,5 +1,9 @@
 package com.greenhouse;
 
-public class Log {
+import java.time.LocalDate;
 
+public class Log {
+    double temperature;
+    LocalDate dateTime;
+    double groundHumidity;
 }
