@@ -1,8 +1,9 @@
 package com.greenhouse.ServerSide;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Plant {
+public class Plant implements Serializable {
     // int water; Kommer senere
     private int preferredTemperature;
     private LocalDate harvestDate;
@@ -18,7 +19,7 @@ public class Plant {
         return preferredTemperature;
     }
 
-    public void setPreferredTemperature(int newPreferredTemperature){
+    public void setPreferredTemperature (int newPreferredTemperature){
         if (newPreferredTemperature < 0){
             throw new IllegalArgumentException("Temparature must be above 0 degrees");
         }
