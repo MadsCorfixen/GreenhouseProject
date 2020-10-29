@@ -1,8 +1,9 @@
-package com.greenhouse;
+package com.greenhouse.ServerSide;
 
-import java.util.
+import java.util.List;
 
 public class PlantList {
     static int MAX_PLANTS;
     List<String> listOfPlants;
+
 }

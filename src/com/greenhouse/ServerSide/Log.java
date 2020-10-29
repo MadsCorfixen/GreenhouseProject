@@ -12,7 +12,7 @@ public class Log {
     }
 
     public void setTemp( Double newTemp) {
-        if (NewTemp < 0)
+        if (newTemp < 0)
             throw new IllegalArgumentException("Temperature cant be set to negative degrees");
         else
             temperature = newTemp;
