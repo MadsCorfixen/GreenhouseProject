@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClientGUI implements ActionListener{
+public class ClientGUI{
 
     private JFrame mainWindow;
     private JButton alterPlantButton;
@@ -17,8 +17,6 @@ public class ClientGUI implements ActionListener{
 
         alterPlantButton = new JButton("Alter Plants");
         alterConditionsButton = new JButton("Alter Conditions");
-        alterPlantButton.addActionListener(this);
-        alterConditionsButton.addActionListener(this);
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
@@ -37,19 +35,45 @@ public class ClientGUI implements ActionListener{
         new ClientGUI();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(alterPlantButton);
-        panel.add(alterConditionsButton);
+    public void setUpButtonListeners() {
+        ActionListener buttonListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == alterPlantButton) {
+                    JButton testButton = new JButton();
 
-        JFrame newWindow = new JFrame();
-        newWindow.add(panel, BorderLayout.CENTER);
-        newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        newWindow.setTitle("New window");
-        newWindow.pack();
-        newWindow.setVisible(true);
+                    JPanel panel = new JPanel();
+                    panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+                    panel.setLayout(new GridLayout(0, 1));
+                    panel.add(testButton);
+
+                    JFrame newWindow = new JFrame();
+                    newWindow.add(panel, BorderLayout.CENTER);
+                    newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    newWindow.setTitle("New window");
+                    newWindow.pack();
+                    newWindow.setVisible(true);
+                }
+            }
+        };
+
+        alterPlantButton.addActionListener(buttonListener);
     }
+
+
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        JPanel panel = new JPanel();
+//        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+//        panel.setLayout(new GridLayout(0, 1));
+//        panel.add(alterPlantButton);
+//        panel.add(alterConditionsButton);
+//
+//        JFrame newWindow = new JFrame();
+//        newWindow.add(panel, BorderLayout.CENTER);
+//        newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        newWindow.setTitle("New window");
+//        newWindow.pack();
+//        newWindow.setVisible(true);
+//    }
 }
