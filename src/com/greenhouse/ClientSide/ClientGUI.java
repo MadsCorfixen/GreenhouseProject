@@ -13,7 +13,7 @@ public class ClientGUI extends JFrame implements ActionListener{
     private JPanel panel;
 
     public ClientGUI() {
-        mainWindow = new JFrame();
+         mainWindow = new JFrame();
 
         alterPlantButton = new JButton("Alter Plants");
         alterConditionsButton = new JButton("Alter Conditions");
@@ -41,10 +41,10 @@ public class ClientGUI extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == alterPlantButton){
-            System.out.println("Code to open plant window");
+            new AlterPlantWindow();
         }
         else if(e.getSource() == alterConditionsButton){
-            System.out.println("Code to open conditions window");
+            System.out.println("FUCK");
         }
     }
 }

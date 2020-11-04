@@ -9,10 +9,10 @@ public class Plant implements Serializable {
     private LocalDate harvestDate;
     private String plantType;
     
-    public Plant (int preferredTemperature, LocalDate harvestDate, String plantType) {
-        this.preferredTemperature = preferredTemperature;
-        this.harvestDate = harvestDate;
+    public Plant (String plantType, LocalDate harvestDate, int preferredTemperature) {
         this.plantType = plantType;
+        this.harvestDate = harvestDate;
+        this.preferredTemperature = preferredTemperature;
     }
 
     public int getPreferredTemperature(){
@@ -49,5 +49,3 @@ public class Plant implements Serializable {
         }
     }
 }
-
-
