@@ -105,11 +105,8 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
             try {
                 new Client(plantType, harvestDate, prefTemp);
             }
-            catch (IOException ioException) {
+            catch (IOException | ClassNotFoundException ioException) {
                 ioException.printStackTrace();
-            }
-            catch (ClassNotFoundException classNotFoundException) {
-                classNotFoundException.printStackTrace();
             }
         }
         else if (e.getSource() == removePlantButton) {
