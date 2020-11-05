@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.LocalDate;
 
 public class Server {
 
@@ -22,12 +23,18 @@ public class Server {
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        Plant receivedPlant = (Plant)inStream.readObject();
+        String receivedPlantType = (String)inStream.readObject();
+        LocalDate receivedHarvestDate = (LocalDate)inStream.readObject();
+        int receivedPrefTemp = (int)inStream.readObject();
 
-        if(receivedPlant instanceof Plant) {
-            listOfPlants.addPlant(receivedPlant);
-            outStream.writeObject("Plant has been added to your greenhouse :-)");
-        }
+        Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
+        listOfPlants.addPlant(plant);
+        outStream.writeObject("Plant has been added to your greenhouse :-)");
+
+//        if(receivedPlant instanceof Plant) {
+//            listOfPlants.addPlant(receivedPlant);
+//            outStream.writeObject("Plant has been added to your greenhouse :-)");
+//        }
 
         listOfPlants.getListOfPlants();
 

@@ -13,20 +13,23 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
     private JFrame plantWindow;
     private JLabel plantLabel;
-    private JButton executePlantButton;
+    private JButton addPlantButton;
+    private JButton removePlantButton;
     private JLabel plantTypeLabel;
     private JLabel plantHarvestDateLabel;
     private JLabel plantPrefTempLabel;
     private JTextField plantTypeField;
     private JTextField plantHarvestDateField;
     private JTextField plantPrefTempField;
+    private JTextField idOfPlantField;
     private JPanel plantPanel;
 
 
     public AlterPlantWindow() {
         plantWindow = new JFrame();
         
-        executePlantButton = new JButton("Add plant");
+        addPlantButton = new JButton("Add plant");
+        removePlantButton = new JButton("Remove Plant with ID:");
 
         plantLabel = new JLabel("Enter info on the plant");
         plantTypeLabel = new JLabel("Plant type:");
@@ -36,6 +39,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         plantTypeField = new JTextField(10);
         plantHarvestDateField = new JTextField(10);
         plantPrefTempField = new JTextField(10);
+        idOfPlantField = new JTextField(10);
 
         plantPanel = new JPanel(new GridBagLayout());
 
@@ -44,14 +48,13 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         constraints.insets = new Insets(10,10,10,10);
 
         plantPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        //plantPanel.setLayout(new GridLayout(0, 2));
         constraints.gridx = 0;
         constraints.gridy = 0;
         plantPanel.add(plantLabel, constraints);
 
         constraints.gridx = 1;
-        plantPanel.add(executePlantButton, constraints);
-        executePlantButton.addActionListener(this);
+        plantPanel.add(addPlantButton, constraints);
+        addPlantButton.addActionListener(this);
 
         constraints.gridx = 0;
         constraints.gridy = 1;
@@ -74,6 +77,14 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         constraints.gridx = 1;
         plantPanel.add(plantPrefTempField, constraints);
 
+        constraints.gridx = 0;
+        constraints.gridy = 5;
+        plantPanel.add(removePlantButton, constraints);
+        removePlantButton.addActionListener(this);
+
+        constraints.gridx = 1;
+        plantPanel.add(idOfPlantField, constraints);
+
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
 
@@ -82,18 +93,18 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         plantWindow.setTitle("Alter Plant Window");
         plantWindow.pack();
         plantWindow.setVisible(true);
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == executePlantButton) {
+        if(e.getSource() == addPlantButton) {
+            boolean addPlant = true;
             String plantType = plantTypeField.getText();
             LocalDate harvestDate = LocalDate.parse(plantHarvestDateField.getText());
             int prefTemp = Integer.parseInt(plantPrefTempField.getText());
 
             try {
-                new Client(plantType, harvestDate, prefTemp);
+                new Client(plantType, harvestDate, prefTemp, addPlant);
             }
             catch (IOException ioException) {
                 ioException.printStackTrace();
@@ -101,6 +112,12 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
             catch (ClassNotFoundException classNotFoundException) {
                 classNotFoundException.printStackTrace();
             }
+        }
+        else if (e.getSource() == removePlantButton) {
+            System.out.println("Action Listener is Working");
+//            boolean removePlant = true;
+//            int plantID = Integer.parseInt(idOfPlantField.getText());
+//            new Client(plantID, removePlant);
         }
     }
 }

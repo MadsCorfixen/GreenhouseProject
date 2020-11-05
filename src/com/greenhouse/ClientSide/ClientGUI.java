@@ -10,6 +10,8 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JFrame mainWindow;
     private JButton alterPlantButton;
     private JButton alterConditionsButton;
+    private JButton seePlantsButton;
+    private JButton getLogButton;
     private JPanel panel;
 
     public ClientGUI() {
@@ -17,13 +19,19 @@ public class ClientGUI extends JFrame implements ActionListener {
 
         alterPlantButton = new JButton("Alter Plants");
         alterConditionsButton = new JButton("Alter Conditions");
+        seePlantsButton = new JButton("See Plants");
+        getLogButton = new JButton("Get Log");
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(new GridLayout(0, 1));
         panel.add(alterPlantButton);
         panel.add(alterConditionsButton);
+        panel.add(seePlantsButton);
+        panel.add(getLogButton);
 
+        alterConditionsButton.addActionListener(this);
+        alterPlantButton.addActionListener(this);
         alterConditionsButton.addActionListener(this);
         alterPlantButton.addActionListener(this);
 

@@ -15,10 +15,10 @@ public class PlantList {
         }
     }
 
-    // TO-DO: Lav nedenstående metode
-    public void removePlant(Plant plant){
+    public void removePlant(int plantID){
         try {
-            listOfPlants.remove(plant);
+            listOfPlants.remove(plantID);
+            System.out.println("Plant has been successfully removed!");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -27,7 +27,7 @@ public class PlantList {
 
     public void getListOfPlants(){
         for (int i = 0; i < listOfPlants.size(); i++) {
-            System.out.println("Plant Number: " + (i + 1));
+            System.out.println("ID of plant: " + i);
             System.out.println(listOfPlants.get(i).getPlantType());
             System.out.println(listOfPlants.get(i).getHarvestDate());
             System.out.println(listOfPlants.get(i).getPreferredTemperature());
