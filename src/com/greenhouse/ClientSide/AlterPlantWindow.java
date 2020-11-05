@@ -98,13 +98,12 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == addPlantButton) {
-            boolean addPlant = true;
             String plantType = plantTypeField.getText();
             LocalDate harvestDate = LocalDate.parse(plantHarvestDateField.getText());
             int prefTemp = Integer.parseInt(plantPrefTempField.getText());
 
             try {
-                new Client(plantType, harvestDate, prefTemp, addPlant);
+                new Client(plantType, harvestDate, prefTemp);
             }
             catch (IOException ioException) {
                 ioException.printStackTrace();
