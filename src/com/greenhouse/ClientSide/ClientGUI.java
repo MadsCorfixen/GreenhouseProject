@@ -52,7 +52,13 @@ public class ClientGUI extends JFrame implements ActionListener {
             new AlterPlantWindow();
         }
         else if(e.getSource() == alterConditionsButton){
-            System.out.println("FUCK");
+            new AlterConditionWindow();
+        }
+        else if(e.getSource() == seePlantsButton){
+            System.out.println("Planter!? WütIsDässss?");
+        }
+        else if(e.getSource() == getLogButton){
+            System.out.println("Nope, ingen løg til dig!");
         }
     }
 }
