@@ -10,17 +10,14 @@ import java.net.Socket;
 import java.time.LocalDate;
 
 public class Client {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        new Client();
-    }
 
-    public Client() throws IOException, ClassNotFoundException {
+    public Client(String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", Server.PORT);
 
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        Plant plant = new Plant("Tomato", LocalDate.of(2021, 1, 13), 20 );
+        Plant plant = new Plant(plantType, harvestDate, prefTemp);
         outStream.writeObject(plant);
 
 

@@ -25,12 +25,12 @@ public class Server {
 
         Plant receivedPlant = (Plant)inStream.readObject();
 
-        listOfPlants.addPlant(receivedPlant);
-        listOfPlants.getListOfPlants();
-
         if(receivedPlant instanceof Plant) {
+            listOfPlants.addPlant(receivedPlant);
             outStream.writeObject("Plant has been added to your greenhouse :-)");
         }
+
+        listOfPlants.getListOfPlants();
 
         serverSocket.close();
     }

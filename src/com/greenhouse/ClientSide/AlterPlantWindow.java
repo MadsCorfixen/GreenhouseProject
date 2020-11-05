@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class AlterPlantWindow extends JFrame implements ActionListener {
@@ -91,8 +92,15 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
             LocalDate harvestDate = LocalDate.parse(plantHarvestDateField.getText());
             int prefTemp = Integer.parseInt(plantPrefTempField.getText());
 
-            Plant plant = new Plant(plantType, harvestDate, prefTemp);
-
+            try {
+                new Client(plantType, harvestDate, prefTemp);
+            }
+            catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            catch (ClassNotFoundException classNotFoundException) {
+                classNotFoundException.printStackTrace();
+            }
         }
     }
 }
