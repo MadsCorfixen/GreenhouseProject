@@ -18,9 +18,11 @@ public class App{
     public Connection connect() {
         Connection conn = null;
         try {
+            Class.forName("com.example.jdbc.Driver");
+
             conn = DriverManager.getConnection(url, user, password);
             System.out.println("Connected to the PostgreSQL server successfully.");
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
@@ -30,7 +32,7 @@ public class App{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         App app = new App();
         app.connect();
     }
