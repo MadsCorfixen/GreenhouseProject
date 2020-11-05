@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClientGUI extends JFrame implements ActionListener{
+public class ClientGUI extends JFrame implements ActionListener {
 
     private JFrame mainWindow;
     private JButton alterPlantButton;
