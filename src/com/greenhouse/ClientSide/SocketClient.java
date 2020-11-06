@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.time.LocalDate;
 
-public class Client {
+public class SocketClient {
 
     private static final int PORT = 6969;
 
@@ -15,7 +15,7 @@ public class Client {
     ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
     ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-    public Client(String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
+    public SocketClient(String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
 
         outStream.writeObject(plantType);
         outStream.writeObject(harvestDate);
@@ -27,7 +27,7 @@ public class Client {
         outStream.close();
         socket.close();
     }
-    public Client(int plantID) throws IOException {
+    public SocketClient(int plantID) throws IOException {
         System.out.println(plantID);
     }
 }

@@ -103,7 +103,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
             int prefTemp = Integer.parseInt(plantPrefTempField.getText());
 
             try {
-                new Client(plantType, harvestDate, prefTemp);
+                new SocketClient(plantType, harvestDate, prefTemp);
             }
             catch (IOException | ClassNotFoundException ioException) {
                 ioException.printStackTrace();
@@ -113,7 +113,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
             System.out.println("Action Listener is Working");
             int plantID = Integer.parseInt(idOfPlantField.getText());
             try {
-                new Client(plantID);
+                new SocketClient(plantID);
             }
             catch (IOException ioe) {
                 ioe.printStackTrace();
