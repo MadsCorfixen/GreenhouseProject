@@ -111,6 +111,14 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         }
         else if (e.getSource() == removePlantButton) {
             System.out.println("Action Listener is Working");
+            int plantID = Integer.parseInt(idOfPlantField.getText());
+            try {
+                new Client(plantID);
+            }
+            catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+
 //            boolean removePlant = true;
 //            int plantID = Integer.parseInt(idOfPlantField.getText());
 //            new Client(plantID, removePlant);

@@ -1,7 +1,5 @@
 package com.greenhouse.ClientSide;
 
-import com.greenhouse.ClientSide.AlterPlantWindow;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,11 +10,12 @@ public class Client {
 
     private static final int PORT = 6969;
 
-    public Client(String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
-        Socket socket = new Socket("localhost", PORT);
+    Socket socket = new Socket("localhost", PORT);
 
-        ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
-        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+    ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+    ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+
+    public Client(String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
 
         outStream.writeObject(plantType);
         outStream.writeObject(harvestDate);
@@ -27,5 +26,8 @@ public class Client {
 
         outStream.close();
         socket.close();
+    }
+    public Client(int plantID) throws IOException {
+        System.out.println(plantID);
     }
 }
