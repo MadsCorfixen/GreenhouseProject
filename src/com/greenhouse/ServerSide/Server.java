@@ -23,13 +23,22 @@ public class Server {
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        String receivedPlantType = (String)inStream.readObject();
-        LocalDate receivedHarvestDate = (LocalDate)inStream.readObject();
-        int receivedPrefTemp = (int)inStream.readObject();
+        String requestType = (String)inStream.readObject();
 
-        Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
-        listOfPlants.addPlant(plant);
-        outStream.writeObject("Plant has been added to your greenhouse :-)");
+        if (requestType.equals("addPlant")) {
+            String receivedPlantType = (String)inStream.readObject();
+            LocalDate receivedHarvestDate = (LocalDate)inStream.readObject();
+            int receivedPrefTemp = (int)inStream.readObject();
+
+            Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
+            listOfPlants.addPlant(plant);
+            outStream.writeObject("Plant has been added to your greenhouse :-)");
+        }
+
+        if (requestType.equals("removePlant")) {
+            int plantID = (int)inStream.readObject();
+            outStream.writeObject("Well, I should be removing a plant with ID: " + plantID + ", but there is no method");
+        }
 
 //        if(receivedPlant instanceof Plant) {
 //            listOfPlants.addPlant(receivedPlant);

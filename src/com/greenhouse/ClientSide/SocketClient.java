@@ -10,13 +10,13 @@ public class SocketClient {
 
     private static final int PORT = 6969;
 
-    Socket socket = new Socket("localhost", PORT);
+    public SocketClient(String requestType, String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
+        Socket socket = new Socket("localhost", PORT);
 
-    ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
-    ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+        ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-    public SocketClient(String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
-
+        outStream.writeObject(requestType);
         outStream.writeObject(plantType);
         outStream.writeObject(harvestDate);
         outStream.writeObject(prefTemp);
@@ -27,7 +27,19 @@ public class SocketClient {
         outStream.close();
         socket.close();
     }
-    public SocketClient(int plantID) throws IOException {
-        System.out.println(plantID);
+    public SocketClient(String requestType, int plantID) throws IOException, ClassNotFoundException {
+        Socket socket = new Socket("localhost", PORT);
+
+        ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+
+        System.out.println(requestType + plantID);
+
+        String receivedMessage = (String)inStream.readObject();
+        System.out.println(receivedMessage);
+
+        outStream.close();
+        socket.close();
     }
+
 }

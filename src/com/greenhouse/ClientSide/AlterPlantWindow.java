@@ -27,7 +27,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
     public AlterPlantWindow() {
         plantWindow = new JFrame();
-        
+
         addPlantButton = new JButton("Add plant");
         removePlantButton = new JButton("Remove Plant with ID:");
 
@@ -35,7 +35,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         plantTypeLabel = new JLabel("Plant type:");
         plantHarvestDateLabel = new JLabel("Harvest date:");
         plantPrefTempLabel = new JLabel("Preferred temperature:");
-        
+
         plantTypeField = new JTextField(10);
         plantHarvestDateField = new JTextField(10);
         plantPrefTempField = new JTextField(10);
@@ -98,30 +98,27 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == addPlantButton) {
-            String plantType = plantTypeField.getText();
-            LocalDate harvestDate = LocalDate.parse(plantHarvestDateField.getText());
-            int prefTemp = Integer.parseInt(plantPrefTempField.getText());
-
             try {
-                new SocketClient(plantType, harvestDate, prefTemp);
+                String requestType = "addPlant";
+                String plantType = plantTypeField.getText();
+                LocalDate harvestDate = LocalDate.parse(plantHarvestDateField.getText());
+                int prefTemp = Integer.parseInt(plantPrefTempField.getText());
+
+                new SocketClient(requestType, plantType, harvestDate, prefTemp);
             }
             catch (IOException | ClassNotFoundException ioException) {
                 ioException.printStackTrace();
             }
         }
         else if (e.getSource() == removePlantButton) {
-            System.out.println("Action Listener is Working");
+            String requestType = "removePlant";
             int plantID = Integer.parseInt(idOfPlantField.getText());
             try {
-                new SocketClient(plantID);
+                new SocketClient(requestType, plantID);
             }
-            catch (IOException ioe) {
+            catch (IOException | ClassNotFoundException ioe) {
                 ioe.printStackTrace();
             }
-
-//            boolean removePlant = true;
-//            int plantID = Integer.parseInt(idOfPlantField.getText());
-//            new Client(plantID, removePlant);
         }
     }
 }
