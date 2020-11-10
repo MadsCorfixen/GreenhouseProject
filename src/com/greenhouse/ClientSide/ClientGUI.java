@@ -1,5 +1,7 @@
 package com.greenhouse.ClientSide;
 
+import com.greenhouse.ServerSide.Log;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

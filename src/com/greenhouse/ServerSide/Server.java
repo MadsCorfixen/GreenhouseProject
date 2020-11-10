@@ -16,6 +16,7 @@ public class Server implements Serializable{
     int minHum = 0;
     int maxHum = 100;
     double todayHum = Math.random() * (maxHum - minHum + 1) + minHum;
+    public Log add_log = new Log();
 
     Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
@@ -25,6 +26,12 @@ public class Server implements Serializable{
 
     public Server() throws IOException, ClassNotFoundException {
         ServerSocket server = new ServerSocket(PORT);
+        try {
+            add_log.logger.info("Server Connection Open");
+        } catch (Exception e) {
+            System.out.println("Log has not been found");
+        }
+
         try {
             FileInputStream fileIn = new FileInputStream("PlantList.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -55,7 +62,6 @@ public class Server implements Serializable{
                 listOfPlants.addPlant(plant);
 
                 try {
-                    Log add_log = new Log();
                     add_log.logger.info("Plant with Type: " + receivedPlantType + ", Harvest Date: " + receivedHarvestDate
                     + ", Preferred Temp: " + receivedPrefTemp + " has been added to plant list");
                 } catch (Exception e) {
@@ -69,8 +75,7 @@ public class Server implements Serializable{
                 int plantID = (int) inStream.readObject();
 
                 try {
-                    Log add_log = new Log();
-                    add_log.logger.info("PlantID: " + plantID + " has been removed from: ");
+                    add_log.logger.info("PlantID: " + plantID + " has been removed from: " + listOfPlants.getListOfPlants().toString());
                 } catch (Exception e) {
                     System.out.println("Log has not been found");
                 }
@@ -80,8 +85,7 @@ public class Server implements Serializable{
             }
 
             if (requestType.equals("getPlants")) {
-                listOfPlants.getListOfPlants();
-                outStream.writeObject("Here is list of plants.");
+                outStream.writeObject(listOfPlants.getListOfPlants().toString());
             }
 
             // Conditions
@@ -121,6 +125,12 @@ public class Server implements Serializable{
             // Exit and Save
             if (requestType.equals("exitAndSave")){
                 try {
+                    add_log.logger.info("GUI EXIT --- Changes have been saved");
+                } catch (Exception e) {
+                    System.out.println("Log has not been found");
+                }
+
+                try {
                     FileOutputStream fileOut = new FileOutputStream("PlantList.ser");
                     ObjectOutputStream out = new ObjectOutputStream(fileOut);
                     out.writeObject(listOfPlants);
@@ -134,5 +144,10 @@ public class Server implements Serializable{
             }
         }
         server.close();
+        try {
+            add_log.logger.info("Server Closed");
+        } catch (Exception e) {
+            System.out.println("Log has not been found");
+        }
     }
 }

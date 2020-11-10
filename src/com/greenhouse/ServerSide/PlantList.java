@@ -13,7 +13,6 @@ public class PlantList implements Serializable {
     public void addPlant(Plant plant){
         try {
             listOfPlants.add(plant);
-            System.out.println("Plant has been added to server");
         }
         catch (Exception e){
             e.printStackTrace();
@@ -39,11 +38,8 @@ public class PlantList implements Serializable {
             liste.add(String.valueOf(listOfPlants.get(i).getPlantType()));
             liste.add(String.valueOf(listOfPlants.get(i).getHarvestDate()));
             liste.add(String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
-//            System.out.println("ID of plant: " + i);
-//            System.out.println(listOfPlants.get(i).getPlantType());
-//            System.out.println(listOfPlants.get(i).getHarvestDate());
-//            System.out.println(listOfPlants.get(i).getPreferredTemperature());
         }
+        System.out.println(liste);
         return liste;
     }
 }
