@@ -1,10 +1,11 @@
 package com.greenhouse.ServerSide;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PlantList {
+public class PlantList implements Serializable {
     static int MAX_PLANTS = 69;
-    ArrayList<Plant> listOfPlants = new ArrayList<>();
+    public ArrayList<Plant> listOfPlants = new ArrayList<>();
 
     public void addPlant(Plant plant){
         try {
@@ -26,12 +27,13 @@ public class PlantList {
         }
     }
 
-    public void getListOfPlants(){
+    public Object getListOfPlants(){
         for (int i = 0; i < listOfPlants.size(); i++) {
             System.out.println("ID of plant: " + i);
             System.out.println(listOfPlants.get(i).getPlantType());
             System.out.println(listOfPlants.get(i).getHarvestDate());
             System.out.println(listOfPlants.get(i).getPreferredTemperature());
         }
+        return null;
     }
 }

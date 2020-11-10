@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalDate;
 
 public class ClientGUI extends JFrame implements ActionListener {
 
@@ -59,13 +61,26 @@ public class ClientGUI extends JFrame implements ActionListener {
             new AlterConditionWindow();
         }
         else if(e.getSource() == seePlantsButton){
-            System.out.println("Planter!? WütIsDässss?");
+            try {
+                String requestType = "getPlants";
+                new SocketClient(requestType);
+            }
+            catch (IOException | ClassNotFoundException ioException) {
+                ioException.printStackTrace();
+            }
         }
         else if(e.getSource() == getLogButton){
             System.out.println("Nope, ingen løg til dig!");
         }
         else if(e.getSource() == exitAndSaveButton){
-            System.out.println("LUK!");
+            try {
+                String requestType = "exitAndSave";
+                new SocketClient(requestType);
+                System.exit(0);
+            }
+            catch (IOException | ClassNotFoundException ioException) {
+                ioException.printStackTrace();
+            }
         }
     }
 }

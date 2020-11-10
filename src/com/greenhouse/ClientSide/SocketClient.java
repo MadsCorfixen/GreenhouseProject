@@ -42,4 +42,19 @@ public class SocketClient {
         outStream.close();
         socket.close();
     }
+
+    public SocketClient(String requestType) throws IOException, ClassNotFoundException {
+        Socket socket = new Socket("localhost", PORT);
+
+        ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+
+        outStream.writeObject(requestType);
+
+        String receivedMessage = (String)inStream.readObject();
+        System.out.println(receivedMessage);
+
+        outStream.close();
+        socket.close();
+    }
 }
