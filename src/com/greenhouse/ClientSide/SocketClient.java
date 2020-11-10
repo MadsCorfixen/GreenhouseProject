@@ -27,6 +27,7 @@ public class SocketClient {
         outStream.close();
         socket.close();
     }
+
     public SocketClient(String requestType, int plantID) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", PORT);
 
@@ -50,6 +51,31 @@ public class SocketClient {
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
         outStream.writeObject(requestType);
+
+        String receivedMessage = (String)inStream.readObject();
+        System.out.println(receivedMessage);
+
+        if(receivedMessage.equals("Current Conditions:")){
+            String receivedMessage1 = (String)inStream.readObject();
+            System.out.println("Temperature: " + Math.round(Double.parseDouble(receivedMessage1) * 100.0) / 100.0 + " \u2103");
+            String receivedMessage2 = (String)inStream.readObject();
+            System.out.println("Humidity: " + Math.round(Double.parseDouble(receivedMessage2) * 100.0) / 100.0 + "%");
+            String receivedMessage3 = (String)inStream.readObject();
+            System.out.println("Is watering? " + receivedMessage3);
+        }
+
+        outStream.close();
+        socket.close();
+    }
+
+    public SocketClient(String requestType, double condition) throws IOException, ClassNotFoundException {
+        Socket socket = new Socket("localhost", PORT);
+
+        ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+
+        outStream.writeObject(requestType);
+        outStream.writeObject(condition);
 
         String receivedMessage = (String)inStream.readObject();
         System.out.println(receivedMessage);
