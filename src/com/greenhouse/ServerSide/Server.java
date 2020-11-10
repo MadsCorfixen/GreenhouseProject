@@ -61,31 +61,31 @@ public class Server implements Serializable{
                     System.out.println("Log has not been found");
                 }
                 
-                outStream.writeObject("Plant has been added to your greenhouse :-)");
+                outStream.writeObject("Plant has been added to your greenhouse.");
             }
 
             if (requestType.equals("removePlant")) {
                 int plantID = (int) inStream.readObject();
                 listOfPlants.removePlant(plantID);
-                outStream.writeObject("Plant " + plantID + " has been removed");
+                outStream.writeObject("Plant " + plantID + " has been removed.");
             }
 
             if (requestType.equals("getPlants")) {
                 listOfPlants.getListOfPlants();
-                outStream.writeObject("Here is list of plants");
+                outStream.writeObject("Here is list of plants.");
             }
 
             // Conditions
             if (requestType.equals("changeTemperature")){
                 double temperature = (double) inStream.readObject();
                 currentConditions.setTemperature(temperature);
-                outStream.writeObject("Temperature was set to " + currentConditions.getTemperature());
+                outStream.writeObject("Temperature was set to " + currentConditions.getTemperature() + ".");
             }
 
             if (requestType.equals("changeHumidity")){
                 double humidity = (double) inStream.readObject();
                 currentConditions.setHumidity(humidity);
-                outStream.writeObject("Humidity was set to " + currentConditions.getHumidity());
+                outStream.writeObject("Humidity was set to " + currentConditions.getHumidity() + ".");
             }
 
             if (requestType.equals("getConditions")){
