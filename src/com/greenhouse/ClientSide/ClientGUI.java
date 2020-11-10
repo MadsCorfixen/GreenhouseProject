@@ -18,24 +18,55 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JButton getLogButton;
     private JPanel panel;
     private JButton exitAndSaveButton;
+    private JLabel welcomeLabel;
+    private JLabel welcomeInfo;
 
     public ClientGUI() {
         mainWindow = new JFrame();
+        welcomeLabel = new JLabel("Welcome to the Greenhouse!");
+        welcomeInfo = new JLabel("Today is so so :-)");
 
         alterPlantButton = new JButton("Alter Plants");
         alterConditionsButton = new JButton("Alter Conditions");
         seePlantsButton = new JButton("See Plants");
         getLogButton = new JButton("Get Log");
         exitAndSaveButton = new JButton("Exit and save!");
+        panel = new JPanel(new GridBagLayout());
 
-        panel = new JPanel();
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.anchor = GridBagConstraints.WEST;
+        constraints.insets = new Insets(10,10,10,10);
+
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(alterPlantButton);
-        panel.add(alterConditionsButton);
-        panel.add(seePlantsButton);
-        panel.add(getLogButton);
-        panel.add(exitAndSaveButton);
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        panel.add(welcomeLabel, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        panel.add(alterPlantButton, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        panel.add(alterConditionsButton, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        panel.add(exitAndSaveButton, constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        panel.add(welcomeInfo, constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        panel.add(seePlantsButton, constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        panel.add(getLogButton, constraints);
+
 
         alterConditionsButton.addActionListener(this);
         alterPlantButton.addActionListener(this);
