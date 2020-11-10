@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PlantList implements Serializable {
     static int MAX_PLANTS = 69;
-    public static ArrayList<Plant> listOfPlants = new ArrayList<>();
+    public ArrayList<Plant> listOfPlants = new ArrayList<>();
 
     // A method to add a plant object to the arraylist
     public void addPlant(Plant plant){

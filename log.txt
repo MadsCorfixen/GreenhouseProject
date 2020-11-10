@@ -10,3 +10,5 @@ Nov 10, 2020 12:23:32 PM com.greenhouse.ServerSide.Server <init>
 INFO: PlantID: 1 has been removed from: null
 Nov 10, 2020 12:27:06 PM com.greenhouse.ServerSide.Server <init>
 INFO: PlantID: 2 has been removed from: 
+Nov 10, 2020 1:10:33 PM com.greenhouse.ServerSide.Server <init>
+INFO: PlantID: 3 has been removed from: com.greenhouse.ServerSide.PlantList@ee7d9f1
