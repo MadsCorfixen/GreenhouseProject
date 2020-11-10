@@ -7,6 +7,7 @@ public class PlantList implements Serializable {
     static int MAX_PLANTS = 69;
     public static ArrayList<Plant> listOfPlants = new ArrayList<>();
 
+    // A method to add a plant object to the arraylist
     public void addPlant(Plant plant){
         try {
             listOfPlants.add(plant);
@@ -17,6 +18,7 @@ public class PlantList implements Serializable {
         }
     }
 
+    //Method to remove a plant objet from the arraylist
     public void removePlant(int plantID){
         try {
             listOfPlants.remove(plantID);
@@ -27,6 +29,7 @@ public class PlantList implements Serializable {
         }
     }
 
+    //Method that utilizes a for loop to print each attribute for every plant object in the arraylist
     public Object getListOfPlants(){
         for (int i = 0; i < listOfPlants.size(); i++) {
             System.out.println("ID of plant: " + i);

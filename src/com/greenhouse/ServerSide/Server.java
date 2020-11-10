@@ -4,12 +4,19 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Server implements Serializable{
 
     public static final int PORT = 6969;
     PlantList listOfPlants = new PlantList();
+    int minTemp = -20;
+    int maxTemp = 60;
+    double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp;
+    int minHum = 0;
+    int maxHum = 100;
+    double todayHum = Math.random() * (maxHum - minHum + 1) + minHum;
+
+    Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
     public static void main(String[] args) throws Exception{
         new Server();
@@ -68,16 +75,49 @@ public class Server implements Serializable{
                 }
 
                 listOfPlants.removePlant(plantID);
-                outStream.writeObject("Plant " + plantID + " has been removed");
+                outStream.writeObject("Plant " + plantID + " has been removed.");
             }
 
             if (requestType.equals("getPlants")) {
                 listOfPlants.getListOfPlants();
-                outStream.writeObject("Here is list of plants");
+                outStream.writeObject("Here is list of plants.");
             }
 
-            // https://samderlust.com/dev-blog/java/write-read-arraylist-object-file-java
+            // Conditions
+            if (requestType.equals("changeTemperature")){
+                double temperature = (double) inStream.readObject();
+                currentConditions.setTemperature(temperature);
+                outStream.writeObject("Temperature was set to " + currentConditions.getTemperature() + ".");
+            }
 
+            if (requestType.equals("changeHumidity")){
+                double humidity = (double) inStream.readObject();
+                currentConditions.setHumidity(humidity);
+                outStream.writeObject("Humidity was set to " + currentConditions.getHumidity() + ".");
+            }
+
+            if (requestType.equals("getConditions")){
+                String currentTemp = String.valueOf(currentConditions.getTemperature());
+                String currentHum = String.valueOf(currentConditions.getHumidity());
+                String isWatering = String.valueOf(currentConditions.isWatering());
+                outStream.writeObject("Current Conditions:");
+                outStream.writeObject(currentTemp);
+                outStream.writeObject(currentHum);
+                outStream.writeObject(isWatering);
+            }
+
+            if (requestType.equals("startWatering")) {
+                currentConditions.setWatering(true);
+                outStream.writeObject("Watering was started.");
+            }
+
+            if (requestType.equals("stopWatering")) {
+                currentConditions.setWatering(false);
+                outStream.writeObject("Watering was stopped.");
+            }
+
+
+            // Exit and Save
             if (requestType.equals("exitAndSave")){
                 try {
                     FileOutputStream fileOut = new FileOutputStream("PlantList.ser");
