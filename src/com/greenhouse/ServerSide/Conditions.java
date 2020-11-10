@@ -56,7 +56,7 @@ public class Conditions implements Serializable {
      */
     public void setHumidity(double humidity) {
         if(humidity < 0){
-            throw new IllegalArgumentException("Humidity must be non-negative")
+            throw new IllegalArgumentException("Humidity must be non-negative");
         }
         else {
             this.humidity = humidity;
