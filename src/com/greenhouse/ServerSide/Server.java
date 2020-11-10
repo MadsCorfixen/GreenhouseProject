@@ -45,6 +45,15 @@ public class Server implements Serializable{
 
                 Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
                 listOfPlants.addPlant(plant);
+
+                try {
+                    Log add_log = new Log();
+                    add_log.logger.info("Plant with Type: " + receivedPlantType + ", Harvest Date: " + receivedHarvestDate
+                    + ", Preffered Temp: " + receivedPrefTemp + " has been added to plant list");
+                } catch (Exception e) {
+                    System.out.println("Log has not been found");
+                }
+                
                 outStream.writeObject("Plant has been added to your greenhouse :-)");
             }
 

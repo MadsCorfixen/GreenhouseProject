@@ -1,0 +1,2 @@
+Nov 10, 2020 11:31:58 AM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: tomato, Harvest Date: 2018-01-01, Preffered Temp:23Has been added to plant list
