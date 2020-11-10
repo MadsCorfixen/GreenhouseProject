@@ -9,6 +9,7 @@ public class PlantList {
     public void addPlant(Plant plant){
         try {
             listOfPlants.add(plant);
+            System.out.println("Plant has been added to server");
         }
         catch (Exception e){
             e.printStackTrace();

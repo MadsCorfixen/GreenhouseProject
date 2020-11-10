@@ -35,8 +35,8 @@ public class ClientGUI extends JFrame implements ActionListener {
 
         alterConditionsButton.addActionListener(this);
         alterPlantButton.addActionListener(this);
-        alterConditionsButton.addActionListener(this);
-        alterPlantButton.addActionListener(this);
+        seePlantsButton.addActionListener(this);
+        getLogButton.addActionListener(this);
         exitAndSaveButton.addActionListener(this);
 
         mainWindow.add(panel, BorderLayout.CENTER);

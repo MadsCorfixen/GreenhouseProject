@@ -33,7 +33,8 @@ public class SocketClient {
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        System.out.println(requestType + plantID);
+        outStream.writeObject(requestType);
+        outStream.writeObject(plantID);
 
         String receivedMessage = (String)inStream.readObject();
         System.out.println(receivedMessage);
@@ -41,5 +42,4 @@ public class SocketClient {
         outStream.close();
         socket.close();
     }
-
 }

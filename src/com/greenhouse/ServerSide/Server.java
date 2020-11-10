@@ -50,8 +50,6 @@ public class Server {
             // listOfPlants.getListOfPlants();
             // https://samderlust.com/dev-blog/java/write-read-arraylist-object-file-java
 
-            socket.close();
-
             if (requestType.equals("exitAndSave")){
                 break;
             }
