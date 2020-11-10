@@ -56,16 +56,24 @@ public class Server implements Serializable{
                 try {
                     Log add_log = new Log();
                     add_log.logger.info("Plant with Type: " + receivedPlantType + ", Harvest Date: " + receivedHarvestDate
-                    + ", Preffered Temp: " + receivedPrefTemp + " has been added to plant list");
+                    + ", Preferred Temp: " + receivedPrefTemp + " has been added to plant list");
                 } catch (Exception e) {
                     System.out.println("Log has not been found");
                 }
-                
-                outStream.writeObject("Plant has been added to your greenhouse.");
+
+                outStream.writeObject("Plant has been added to your greenhouse :-)");
             }
 
             if (requestType.equals("removePlant")) {
                 int plantID = (int) inStream.readObject();
+
+                try {
+                    Log add_log = new Log();
+                    add_log.logger.info("PlantID: " + plantID + " has been removed from: ");
+                } catch (Exception e) {
+                    System.out.println("Log has not been found");
+                }
+
                 listOfPlants.removePlant(plantID);
                 outStream.writeObject("Plant " + plantID + " has been removed.");
             }

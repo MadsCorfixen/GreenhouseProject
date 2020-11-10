@@ -6,7 +6,7 @@ import java.util.logging.*;
 
 public class Log {
     public Logger logger;
-    FileHandler fh;
+    public FileHandler fh;
     private final static String file_name = "log.txt";
 
     public Log() throws IOException {
