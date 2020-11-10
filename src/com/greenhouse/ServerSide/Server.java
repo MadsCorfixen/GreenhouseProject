@@ -17,6 +17,19 @@ public class Server implements Serializable{
 
     public Server() throws IOException, ClassNotFoundException {
         ServerSocket server = new ServerSocket(PORT);
+        try {
+            FileInputStream fileIn = new FileInputStream("PlantList.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            listOfPlants = (PlantList) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.println("PlantList Class not found");
+            return;
+        }
 
         while (true) {
             Socket socket = server.accept();
@@ -37,7 +50,8 @@ public class Server implements Serializable{
 
             if (requestType.equals("removePlant")) {
                 int plantID = (int) inStream.readObject();
-                outStream.writeObject("Well, I should be removing a plant with ID: " + plantID + ", but there is no method");
+                listOfPlants.removePlant(plantID);
+                outStream.writeObject("Plant " + plantID + " has been removed");
             }
 
             if (requestType.equals("getPlants")) {
