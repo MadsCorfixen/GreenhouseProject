@@ -13,14 +13,16 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JButton seePlantsButton;
     private JButton getLogButton;
     private JPanel panel;
+    private JButton exitAndSaveButton;
 
     public ClientGUI() {
-         mainWindow = new JFrame();
+        mainWindow = new JFrame();
 
         alterPlantButton = new JButton("Alter Plants");
         alterConditionsButton = new JButton("Alter Conditions");
         seePlantsButton = new JButton("See Plants");
         getLogButton = new JButton("Get Log");
+        exitAndSaveButton = new JButton("Exit and save!");
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
@@ -29,11 +31,13 @@ public class ClientGUI extends JFrame implements ActionListener {
         panel.add(alterConditionsButton);
         panel.add(seePlantsButton);
         panel.add(getLogButton);
+        panel.add(exitAndSaveButton);
 
         alterConditionsButton.addActionListener(this);
         alterPlantButton.addActionListener(this);
         alterConditionsButton.addActionListener(this);
         alterPlantButton.addActionListener(this);
+        exitAndSaveButton.addActionListener(this);
 
         mainWindow.add(panel, BorderLayout.CENTER);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,6 +63,9 @@ public class ClientGUI extends JFrame implements ActionListener {
         }
         else if(e.getSource() == getLogButton){
             System.out.println("Nope, ingen løg til dig!");
+        }
+        else if(e.getSource() == exitAndSaveButton){
+            System.out.println("LUK!");
         }
     }
 }

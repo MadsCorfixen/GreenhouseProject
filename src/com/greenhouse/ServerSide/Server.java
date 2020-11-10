@@ -17,37 +17,45 @@ public class Server {
     }
 
     public Server() throws IOException, ClassNotFoundException {
-        ServerSocket serverSocket = new ServerSocket(PORT);
-        Socket socket = serverSocket.accept();
+        ServerSocket server = new ServerSocket(PORT);
 
-        ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
-        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        String requestType = (String)inStream.readObject();
+        while (true) {
+            Socket socket = server.accept();
 
-        if (requestType.equals("addPlant")) {
-            String receivedPlantType = (String)inStream.readObject();
-            LocalDate receivedHarvestDate = (LocalDate)inStream.readObject();
-            int receivedPrefTemp = (int)inStream.readObject();
+            ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-            Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
-            listOfPlants.addPlant(plant);
-            outStream.writeObject("Plant has been added to your greenhouse :-)");
-        }
+            String requestType = (String)inStream.readObject();
+            if (requestType.equals("addPlant")) {
+                String receivedPlantType = (String) inStream.readObject();
+                LocalDate receivedHarvestDate = (LocalDate) inStream.readObject();
+                int receivedPrefTemp = (int) inStream.readObject();
 
-        if (requestType.equals("removePlant")) {
-            int plantID = (int)inStream.readObject();
-            outStream.writeObject("Well, I should be removing a plant with ID: " + plantID + ", but there is no method");
-        }
+                Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
+                listOfPlants.addPlant(plant);
+                outStream.writeObject("Plant has been added to your greenhouse :-)");
+            }
+
+            if (requestType.equals("removePlant")) {
+                int plantID = (int) inStream.readObject();
+                outStream.writeObject("Well, I should be removing a plant with ID: " + plantID + ", but there is no method");
+            }
 
 //        if(receivedPlant instanceof Plant) {
 //            listOfPlants.addPlant(receivedPlant);
 //            outStream.writeObject("Plant has been added to your greenhouse :-)");
 //        }
 
-        listOfPlants.getListOfPlants();
-        // https://samderlust.com/dev-blog/java/write-read-arraylist-object-file-java
+            // listOfPlants.getListOfPlants();
+            // https://samderlust.com/dev-blog/java/write-read-arraylist-object-file-java
 
-        serverSocket.close();
+            socket.close();
+
+            if (requestType.equals("exitAndSave")){
+                break;
+            }
+        }
+        server.close();
     }
 }
