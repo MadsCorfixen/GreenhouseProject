@@ -90,9 +90,11 @@ public class ClientGUI extends JFrame implements ActionListener {
         if(e.getSource() == alterPlantButton){
             new AlterPlantWindow();
         }
+
         else if(e.getSource() == alterConditionsButton){
             new AlterConditionWindow();
         }
+
         else if(e.getSource() == seePlantsButton){
             try {
                 String requestType = "getPlants";
@@ -102,9 +104,17 @@ public class ClientGUI extends JFrame implements ActionListener {
                 ioException.printStackTrace();
             }
         }
+
         else if(e.getSource() == getLogButton){
-            System.out.println("Nope, ingen løg til dig!");
+            try {
+                String requestType = "getLog";
+                new SocketClient(requestType);
+            }
+            catch (IOException | ClassNotFoundException ioException) {
+                ioException.printStackTrace();
+            }
         }
+
         else if(e.getSource() == exitAndSaveButton){
             try {
                 String requestType = "exitAndSave";

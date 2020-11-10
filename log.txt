@@ -1,1 +1,31 @@
 
+Nov 10, 2020 2:16:54 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:18:39 PM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Ny Plump, Harvest Date: 2018-01-01, Preferred Temp: 23 has been added to plant list
+Nov 10, 2020 2:18:41 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+Nov 10, 2020 2:18:41 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+Nov 10, 2020 2:36:47 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:38:14 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:40:12 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:41:50 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:42:04 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+Nov 10, 2020 2:42:04 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+Nov 10, 2020 2:48:07 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:51:15 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 2:59:17 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 3:03:18 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 10, 2020 3:10:24 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open

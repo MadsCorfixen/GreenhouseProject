@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Server implements Serializable{
 
@@ -88,6 +89,17 @@ public class Server implements Serializable{
                 outStream.writeObject(listOfPlants.getListOfPlants().toString());
             }
 
+            if (requestType.equals("getLog")) {
+                File file = new File("log.txt");
+                Scanner reader = new Scanner(file);
+                while (reader.hasNextLine()) {
+                    String data = reader.nextLine();
+                    System.out.println(data);
+                }
+                reader.close();
+                outStream.writeObject("Here is list");
+            }
+
             // Conditions
             if (requestType.equals("changeTemperature")){
                 double temperature = (double) inStream.readObject();
@@ -139,7 +151,7 @@ public class Server implements Serializable{
                 } catch (IOException i) {
                     i.printStackTrace();
                 }
-                outStream.writeObject("Server Closing");
+                outStream.writeObject("Changes have been saved and server is closing");
                 break;
             }
         }
