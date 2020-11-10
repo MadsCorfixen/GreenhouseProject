@@ -1,20 +1,24 @@
-package com.greenhouse;
+package com.greenhouse.ServerSide;
 
-import java.time.LocalDate;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.*;
 
 public class Log {
-    private double temperature;
-    private LocalDate dateTime;
-    private double groundHumidity;
+    public Logger logger;
+    FileHandler fh;
+    private final static String file_name = "log.txt";
 
-    public Double getTemp() {
-        return temperature;
-    }
+    public Log() throws IOException {
+        File f = new File(file_name);
+        if(!f.exists()){
+            f.createNewFile();
+        }
 
-    public void setTemp( Double newTemp) {
-        if (newTemp < 0)
-            throw new IllegalArgumentException("Temperature cant be set to negative degrees");
-        else
-            temperature = newTemp;
+        fh = new FileHandler(file_name, true);
+        logger = Logger.getLogger("test");
+        logger.addHandler(fh);
+        SimpleFormatter formatter = new SimpleFormatter();
+        fh.setFormatter(formatter);
     }
 }
