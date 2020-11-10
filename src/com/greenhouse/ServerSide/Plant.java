@@ -21,7 +21,6 @@ public class Plant implements Serializable {
         this.preferredTemperature = preferredTemperature;
     }
 
-
     /**
      * A getter for the temperature
      * @return The preferred temperature for the plant
@@ -37,7 +36,7 @@ public class Plant implements Serializable {
      */
     public void setPreferredTemperature (int newPreferredTemperature){
         if (newPreferredTemperature < 0){
-            throw new IllegalArgumentException("Temperature must be above 0 degrees");
+            throw new IllegalArgumentException("Temperature must be above 0 \u2103");
         }
         else {
             this.preferredTemperature = newPreferredTemperature;
