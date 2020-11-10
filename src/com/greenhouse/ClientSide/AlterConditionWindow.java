@@ -60,7 +60,6 @@ public class AlterConditionWindow extends JFrame implements ActionListener {
         constraints.gridheight = 1;
 
         condWindow.add(condPanel, BorderLayout.CENTER);
-        condWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         condWindow.setTitle("Alter Condition Window");
         condWindow.pack();
         condWindow.setVisible(true);

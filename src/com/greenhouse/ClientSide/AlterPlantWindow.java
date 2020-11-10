@@ -89,7 +89,6 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         constraints.gridheight = 1;
 
         plantWindow.add(plantPanel, BorderLayout.CENTER);
-        plantWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         plantWindow.setTitle("Alter Plant Window");
         plantWindow.pack();
         plantWindow.setVisible(true);
