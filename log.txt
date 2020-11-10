@@ -1,2 +1,12 @@
 Nov 10, 2020 11:31:58 AM com.greenhouse.ServerSide.Server <init>
 INFO: Plant with Type: tomato, Harvest Date: 2018-01-01, Preffered Temp:23Has been added to plant list
+Nov 10, 2020 12:07:28 PM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Blap, Harvest Date: 2018-01-01, Preffered Temp: 23 has been added to plant list
+Nov 10, 2020 12:19:58 PM com.greenhouse.ServerSide.Server <init>
+INFO: PlantID: 2Has been removed from: null
+Nov 10, 2020 12:22:14 PM com.greenhouse.ServerSide.Server <init>
+INFO: PlantID: 2Has been removed from: com.greenhouse.ServerSide.PlantList@7dc5e7b4
+Nov 10, 2020 12:23:32 PM com.greenhouse.ServerSide.Server <init>
+INFO: PlantID: 1 has been removed from: null
+Nov 10, 2020 12:27:06 PM com.greenhouse.ServerSide.Server <init>
+INFO: PlantID: 2 has been removed from: 
