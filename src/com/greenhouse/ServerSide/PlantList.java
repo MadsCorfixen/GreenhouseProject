@@ -1,7 +1,9 @@
 package com.greenhouse.ServerSide;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlantList implements Serializable {
     static int MAX_PLANTS = 69;
@@ -30,13 +32,18 @@ public class PlantList implements Serializable {
     }
 
     //Method that utilizes a for loop to print each attribute for every plant object in the arraylist
-    public Object getListOfPlants(){
+    public List getListOfPlants(){
+        ArrayList<String> liste = new ArrayList<>();
         for (int i = 0; i < listOfPlants.size(); i++) {
-            System.out.println("ID of plant: " + i);
-            System.out.println(listOfPlants.get(i).getPlantType());
-            System.out.println(listOfPlants.get(i).getHarvestDate());
-            System.out.println(listOfPlants.get(i).getPreferredTemperature());
+            liste.add("ID of plant:" + String.valueOf(i));
+            liste.add(String.valueOf(listOfPlants.get(i).getPlantType()));
+            liste.add(String.valueOf(listOfPlants.get(i).getHarvestDate()));
+            liste.add(String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
+//            System.out.println("ID of plant: " + i);
+//            System.out.println(listOfPlants.get(i).getPlantType());
+//            System.out.println(listOfPlants.get(i).getHarvestDate());
+//            System.out.println(listOfPlants.get(i).getPreferredTemperature());
         }
-        return null;
+        return liste;
     }
 }
