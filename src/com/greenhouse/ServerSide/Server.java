@@ -55,9 +55,11 @@ public class Server implements Serializable{
 
             String requestType = (String)inStream.readObject();
 
-            if(PlantList.counter > 0) {
+
+            if(listOfPlants.getIfHarvestable() > 0) {
                 outStream.writeObject("Harvegetable");
             }
+
 
             if (requestType.equals("addPlant")) {
                 String receivedPlantType = (String) inStream.readObject();

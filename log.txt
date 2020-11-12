@@ -52,3 +52,25 @@ nov. 12, 2020 11:41:08 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
 nov. 12, 2020 11:42:00 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
+nov. 12, 2020 12:33:00 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:40:29 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:47:01 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:47:56 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:49:44 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:50:31 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:51:35 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:53:18 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:53:45 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:54:30 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 12:56:35 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
