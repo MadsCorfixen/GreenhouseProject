@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ClientGUI extends JFrame implements ActionListener {
 
@@ -22,9 +23,11 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JLabel welcomeInfo;
 
     public ClientGUI() {
+        LocalDate localDate = LocalDate.now();
+
         mainWindow = new JFrame();
         welcomeLabel = new JLabel("Welcome to the Greenhouse!");
-        welcomeInfo = new JLabel("Today is so so :-)");
+        welcomeInfo = new JLabel("Today's date " + localDate);
 
         alterPlantButton = new JButton("Alter Plants");
         alterConditionsButton = new JButton("Alter Conditions");

@@ -33,8 +33,8 @@ public class Conditions implements Serializable {
      * @throws IllegalArgumentException if the temperature is below freezing
      */
     public void setTemperature(double temperature) {
-        if(temperature < 0){
-            throw new IllegalArgumentException("Temperature must be above 0 \u2103");
+        if(temperature < 0 | temperature > 60){
+            throw new IllegalArgumentException("Temperature must be between 0 \u2103 and 60 \u2103");
         }
         else{
             this.temperature = temperature;
@@ -55,8 +55,8 @@ public class Conditions implements Serializable {
      * @throws IllegalArgumentException if the humidity is negative
      */
     public void setHumidity(double humidity) {
-        if(humidity < 0){
-            throw new IllegalArgumentException("Humidity must be non-negative");
+        if(humidity < 0 | humidity > 100){
+            throw new IllegalArgumentException("Humidity must be non-negative and below 100%");
         }
         else {
             this.humidity = humidity;

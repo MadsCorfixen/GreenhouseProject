@@ -61,12 +61,17 @@ public class Server implements Serializable{
 
                 Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
                 try {
+                    plant.setPlantType(receivedPlantType);
+                    plant.setHarvestDate(receivedHarvestDate);
+                    plant.setPreferredTemperature(receivedPrefTemp);
                     listOfPlants.addPlant(plant);
                     add_log.logger.info("Plant with Type: " + receivedPlantType + ", Harvest Date: " + receivedHarvestDate
                     + ", Preferred Temp: " + receivedPrefTemp + " has been added to plant list");
                     outStream.writeObject("Plant has been added to your greenhouse :-)");
-                } catch (Exception e) {
-                    System.out.println("Plant was not added to your greenhouse :-(");
+                } catch (IllegalArgumentException e) {
+                    outStream.writeObject("Plant was not added to your greenhouse :-(, either date is in the past or " +
+                            "temperature outside 0 \u2103 and 60 \u2103");
+                    e.printStackTrace();
                 }
             }
 
@@ -88,7 +93,7 @@ public class Server implements Serializable{
 
             if (requestType.equals("getLog")) {
                 File file = new File("log.txt");
-                outStream.writeObject("Here is list");
+                outStream.writeObject("Here is the list:");
                 outStream.writeObject(file);
             }
 
@@ -97,10 +102,11 @@ public class Server implements Serializable{
                 double temperature = (double) inStream.readObject();
                 try {
                     currentConditions.setTemperature(temperature);
-                    add_log.logger.info("Temperature was set to: " + temperature);
-                    outStream.writeObject("Temperature was set to " + currentConditions.getTemperature() + ".");
-                } catch (Exception e) {
-                    System.out.println("Temperature was not set");
+                    add_log.logger.info("Temperature was set to: " + temperature + " \u2103");
+                    outStream.writeObject("Temperature was set to " + currentConditions.getTemperature() + " \u2103");
+                } catch (IllegalArgumentException e) {
+                    outStream.writeObject("Temperature must be between 0 \u2103 and 60 \u2103");
+                    e.printStackTrace();
                 }
             }
 
@@ -108,10 +114,11 @@ public class Server implements Serializable{
                 double humidity = (double) inStream.readObject();
                 try {
                     currentConditions.setHumidity(humidity);
-                    add_log.logger.info("Humidity was set to: " + humidity);
-                    outStream.writeObject("Humidity was set to " + currentConditions.getHumidity() + ".");
+                    add_log.logger.info("Humidity was set to: " + humidity + "%");
+                    outStream.writeObject("Humidity was set to " + currentConditions.getHumidity() + "%");
                 } catch (Exception e) {
-                    System.out.println("Humidity was not set");
+                    outStream.writeObject("Humidity must be between 0% and 100%");
+                    e.printStackTrace();
                 }
             }
 
@@ -129,10 +136,9 @@ public class Server implements Serializable{
                 try {
                     currentConditions.setWatering(true);
                     add_log.logger.warning("The Greenhouse has begun watering");
-                    outStream.writeObject("Watering was started.");
+                    outStream.writeObject("Watering was started");
                 } catch (Exception e) {
-                    System.out.println("Watering was not started");
-                    outStream.writeObject("Watering was not started.");
+                    outStream.writeObject("Watering was not started");
                 }
             }
 
@@ -140,9 +146,9 @@ public class Server implements Serializable{
                 try {
                     currentConditions.setWatering(true);
                     add_log.logger.warning("The Greenhouse has stopped watering");
-                    outStream.writeObject("Watering was stopped.");
+                    outStream.writeObject("Watering was stopped");
                 } catch (Exception e) {
-                    System.out.println("Watering was not stopped");
+                    outStream.writeObject("Watering was not stopped");
                 }
             }
 
@@ -172,3 +178,4 @@ public class Server implements Serializable{
         }
     }
 }
+

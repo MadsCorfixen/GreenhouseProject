@@ -35,8 +35,8 @@ public class Plant implements Serializable {
      * @throws IllegalArgumentException if the temperature is below freezing.
      */
     public void setPreferredTemperature (int newPreferredTemperature){
-        if (newPreferredTemperature < 0){
-            throw new IllegalArgumentException("Temperature must be above 0 \u2103");
+        if (newPreferredTemperature < 0 | newPreferredTemperature > 60){
+            throw new IllegalArgumentException("Temperature must be above 0 \u2103 and below 60 \u2103");
         }
         else {
             this.preferredTemperature = newPreferredTemperature;
@@ -74,7 +74,7 @@ public class Plant implements Serializable {
      */
     public void setHarvestDate(LocalDate newHarvestDate) {
         if (newHarvestDate.compareTo(LocalDate.now()) <= 0){
-            throw new IllegalArgumentException("Date is not available");
+            throw new IllegalArgumentException("Date must be in the future");
         }
         else {
             this.harvestDate = newHarvestDate;

@@ -1,69 +1,28 @@
-
-Nov 10, 2020 2:16:54 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:05:41 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 2:18:39 PM com.greenhouse.ServerSide.Server <init>
-INFO: Plant with Type: Ny Plump, Harvest Date: 2018-01-01, Preferred Temp: 23 has been added to plant list
-Nov 10, 2020 2:18:41 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:09:00 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 10:09:42 AM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Tomato, Harvest Date: 2020-12-12, Preferred Temp: 15 has been added to plant list
+nov. 12, 2020 10:09:46 AM com.greenhouse.ServerSide.Server <init>
 INFO: GUI EXIT --- Changes have been saved
-Nov 10, 2020 2:18:41 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:09:46 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
-Nov 10, 2020 2:36:47 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:10:00 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 2:38:14 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:10:34 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 2:40:12 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:12:13 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 2:41:50 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-Nov 10, 2020 2:42:04 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:12:34 AM com.greenhouse.ServerSide.Server <init>
+INFO: Temperature was set to: 50.0 ℃
+nov. 12, 2020 10:12:37 AM com.greenhouse.ServerSide.Server <init>
 INFO: GUI EXIT --- Changes have been saved
-Nov 10, 2020 2:42:04 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:12:37 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
-Nov 10, 2020 2:48:07 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:12:51 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 2:51:15 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:14:37 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 2:59:17 PM com.greenhouse.ServerSide.Server <init>
+nov. 12, 2020 10:14:50 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
-Nov 10, 2020 3:03:18 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-Nov 10, 2020 3:10:24 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 8:54:52 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 8:56:16 AM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 12, 2020 8:56:16 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
-nov. 12, 2020 8:58:09 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 8:58:23 AM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 12, 2020 8:58:23 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
-nov. 12, 2020 9:04:44 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 9:05:19 AM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 12, 2020 9:05:19 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
-nov. 12, 2020 9:05:23 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 9:05:35 AM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 12, 2020 9:05:35 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
-nov. 12, 2020 9:06:13 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 9:06:22 AM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 12, 2020 9:06:22 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
-nov. 12, 2020 9:06:58 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 9:07:41 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 12, 2020 9:07:50 AM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 12, 2020 9:07:50 AM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed

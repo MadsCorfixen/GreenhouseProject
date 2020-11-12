@@ -66,8 +66,7 @@ public class SocketClient {
             System.out.println("Is watering? " + receivedMessage3);
         }
 
-        if(receivedMessage.equals("Here is list")){
-            System.out.println("Sucessfully entered if statement");
+        if(receivedMessage.equals("Here is the list:")){
             File receivedFile = (File)inStream.readObject();
             Scanner reader = new Scanner(receivedFile);
             while (reader.hasNextLine()) {
