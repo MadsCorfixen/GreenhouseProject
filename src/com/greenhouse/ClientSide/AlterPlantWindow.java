@@ -14,7 +14,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
     private JFrame plantWindow;
     private JLabel plantLabel;
     private JButton addPlantButton;
-    private JButton removePlantButton;
+    private JButton harvestPlantButton;
     private JLabel plantTypeLabel;
     private JLabel plantHarvestDateLabel;
     private JLabel plantPrefTempLabel;
@@ -29,7 +29,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         plantWindow = new JFrame();
 
         addPlantButton = new JButton("Add plant");
-        removePlantButton = new JButton("Remove Plant with ID:");
+        harvestPlantButton = new JButton("Harvest Plant with ID:");
 
         plantLabel = new JLabel("Enter info on the plant");
         plantTypeLabel = new JLabel("Plant type:");
@@ -79,8 +79,8 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
         constraints.gridx = 0;
         constraints.gridy = 5;
-        plantPanel.add(removePlantButton, constraints);
-        removePlantButton.addActionListener(this);
+        plantPanel.add(harvestPlantButton, constraints);
+        harvestPlantButton.addActionListener(this);
 
         constraints.gridx = 1;
         plantPanel.add(idOfPlantField, constraints);
@@ -109,7 +109,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
                 ioException.printStackTrace();
             }
         }
-        else if (e.getSource() == removePlantButton) {
+        else if (e.getSource() == harvestPlantButton) {
             String requestType = "removePlant";
             int plantID = Integer.parseInt(idOfPlantField.getText());
             try {
