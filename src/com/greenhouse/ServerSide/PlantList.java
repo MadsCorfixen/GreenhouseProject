@@ -1,7 +1,6 @@
 package com.greenhouse.ServerSide;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +39,15 @@ public class PlantList implements Serializable {
             liste.add(String.valueOf(listOfPlants.get(i).getPlantType()));
             liste.add(String.valueOf(listOfPlants.get(i).getHarvestDate()));
             liste.add(String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
-            if(LocalDate.now().compareTo(listOfPlants.get(i).getHarvestDate()) >= 0) {
+        }
+        return liste;
+    }
+    public int getIfHarvestable(){
+        for (int i = 0; i < listOfPlants.size(); i++) {
+            if (listOfPlants.get(i).getHarvestDate().compareTo(LocalDate.now()) <= 0) {
                 counter += 1;
             }
         }
-        System.out.println(counter);
-        return liste;
+        return counter;
     }
 }

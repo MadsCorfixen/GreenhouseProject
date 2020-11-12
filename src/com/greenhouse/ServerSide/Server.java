@@ -18,6 +18,7 @@ public class Server implements Serializable{
     int maxHum = 100;
     double todayHum = Math.random() * (maxHum - minHum + 1) + minHum;
     public Log add_log = new Log();
+    boolean alreadyExecuted = false;
 
     Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
@@ -55,9 +56,13 @@ public class Server implements Serializable{
 
             String requestType = (String)inStream.readObject();
 
-            if(PlantList.counter > 0) {
-                outStream.writeObject("Harvegetable");
-            }
+//            if(!alreadyExecuted) {
+//                if (listOfPlants.getIfHarvestable() > 0) {
+//                    outStream.writeObject("Harvegetable");
+//                alreadyExecuted = true;
+//                }
+//            }
+
 
             if (requestType.equals("addPlant")) {
                 String receivedPlantType = (String) inStream.readObject();
