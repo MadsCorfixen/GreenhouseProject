@@ -56,18 +56,12 @@ public class Server implements Serializable{
 
             String requestType = (String)inStream.readObject();
 
-
-            if (requestType.equals("checkRipeness")) {
+            if(!alreadyExecuted) {
                 if (listOfPlants.getIfHarvestable() > 0) {
                     outStream.writeObject("Harvegetable");
+                alreadyExecuted = true;
                 }
             }
-//            if(!alreadyExecuted) {
-//                if (listOfPlants.getIfHarvestable() > 0) {
-//                    outStream.writeObject("Harvegetable");
-//                alreadyExecuted = true;
-//                }
-//            }
 
 
             if (requestType.equals("addPlant")) {

@@ -21,7 +21,7 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JButton exitAndSaveButton;
     private JLabel welcomeLabel;
     private JLabel welcomeInfo;
-    private JButton ripeButton;
+    private JLabel harvestInfo;
 
     public ClientGUI() {
         LocalDate localDate = LocalDate.now();
@@ -35,7 +35,7 @@ public class ClientGUI extends JFrame implements ActionListener {
         seePlantsButton = new JButton("See Plants");
         getLogButton = new JButton("Get Log");
         exitAndSaveButton = new JButton("Save and Exit!");
-        ripeButton = new JButton("Check ripeness");
+        harvestInfo = new JLabel("You have " + SocketClient.ripeOrNot + " plants!");
         panel = new JPanel(new GridBagLayout());
 
 
@@ -58,7 +58,7 @@ public class ClientGUI extends JFrame implements ActionListener {
 
         constraints.gridx = 0;
         constraints.gridy = 3;
-        panel.add(getLogButton, constraints);
+        panel.add(exitAndSaveButton, constraints);
 
         constraints.gridx = 1;
         constraints.gridy = 0;
@@ -68,10 +68,10 @@ public class ClientGUI extends JFrame implements ActionListener {
         panel.add(seePlantsButton, constraints);
 
         constraints.gridy = 2;
-        panel.add(ripeButton, constraints);
+        panel.add(getLogButton, constraints);
 
         constraints.gridy = 3;
-        panel.add(exitAndSaveButton, constraints);
+        panel.add(harvestInfo, constraints);
 
 
         alterConditionsButton.addActionListener(this);
@@ -79,7 +79,6 @@ public class ClientGUI extends JFrame implements ActionListener {
         seePlantsButton.addActionListener(this);
         getLogButton.addActionListener(this);
         exitAndSaveButton.addActionListener(this);
-        ripeButton.addActionListener(this);
 
         mainWindow.add(panel, BorderLayout.CENTER);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,16 +114,6 @@ public class ClientGUI extends JFrame implements ActionListener {
         else if(e.getSource() == getLogButton){
             try {
                 String requestType = "getLog";
-                new SocketClient(requestType);
-            }
-            catch (IOException | ClassNotFoundException ioException) {
-                ioException.printStackTrace();
-            }
-        }
-
-        else if(e.getSource() == ripeButton){
-            try {
-                String requestType = "checkRipeness";
                 new SocketClient(requestType);
             }
             catch (IOException | ClassNotFoundException ioException) {
