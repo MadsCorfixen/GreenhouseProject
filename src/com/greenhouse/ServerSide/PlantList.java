@@ -48,7 +48,6 @@ public class PlantList implements Serializable {
                 counter += 1;
             }
         }
-        System.out.println(counter);
         return counter;
     }
 }

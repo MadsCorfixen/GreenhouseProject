@@ -34,7 +34,7 @@ public class ClientGUI extends JFrame implements ActionListener {
         alterConditionsButton = new JButton("Alter Conditions");
         seePlantsButton = new JButton("See Plants");
         getLogButton = new JButton("Get Log");
-        exitAndSaveButton = new JButton("Exit and save!");
+        exitAndSaveButton = new JButton("Save and Exit!");
         harvestInfo = new JLabel("You have " + SocketClient.ripeOrNot + " plants!");
         panel = new JPanel(new GridBagLayout());
 
