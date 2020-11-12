@@ -84,3 +84,45 @@ nov. 12, 2020 1:03:04 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
 nov. 12, 2020 1:03:10 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
+nov. 12, 2020 1:10:37 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:11:55 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 1:11:55 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 1:12:01 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:31:41 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 1:31:41 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 1:33:22 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:34:08 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:34:16 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 1:34:16 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 1:34:20 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:37:48 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:38:08 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:38:29 PM com.greenhouse.ServerSide.Server <init>
+INFO: Temperature was set to: 23.0 ℃
+nov. 12, 2020 1:38:32 PM com.greenhouse.ServerSide.Server <init>
+INFO: Humidity was set to: 75.0%
+nov. 12, 2020 1:38:34 PM com.greenhouse.ServerSide.Server <init>
+WARNING: The Greenhouse has begun watering
+nov. 12, 2020 1:38:36 PM com.greenhouse.ServerSide.Server <init>
+WARNING: The Greenhouse has stopped watering
+nov. 12, 2020 1:38:47 PM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Tomato, Harvest Date: 2020-12-11, Preferred Temp: 20 has been added to plant list
+nov. 12, 2020 1:38:52 PM com.greenhouse.ServerSide.Server <init>
+INFO: PlantID: 0 has been removed from: [ID of plant:0, tomato, 2018-01-01, 23, ID of plant:1, cucumber, 2018-01-04, 45, ID of plant:2, bigdick, 2018-01-01, 32, ID of plant:3, Ny Plump, 2018-01-01, 23, ID of plant:4, tomato, 2020-12-12, 14, ID of plant:5, Tomato, 2020-12-11, 20]
+nov. 12, 2020 1:38:58 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 1:38:58 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
