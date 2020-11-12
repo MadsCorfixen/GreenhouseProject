@@ -126,3 +126,15 @@ nov. 12, 2020 1:38:58 PM com.greenhouse.ServerSide.Server <init>
 INFO: GUI EXIT --- Changes have been saved
 nov. 12, 2020 1:38:58 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
+nov. 12, 2020 1:48:56 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:49:39 PM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Tomato, Harvest Date: 2020-12-12, Preferred Temp: 16 has been added to plant list
+nov. 12, 2020 1:50:10 PM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 1:50:10 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 1:50:16 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 1:51:52 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
