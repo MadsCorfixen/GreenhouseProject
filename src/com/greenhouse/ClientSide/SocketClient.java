@@ -56,8 +56,9 @@ public class SocketClient {
         outStream.writeObject(requestType);
 
         String receivedMessage = (String)inStream.readObject();
-        if (!receivedMessage.equals("Harvegetable")) {
-            System.out.println(receivedMessage);
+
+        if (receivedMessage.equals("checkRipeness")) {
+            outStream.writeObject("checkRipeness");
         }
 
         if(receivedMessage.equals("Harvegetable")){
