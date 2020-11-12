@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class SocketClient {
 
     private static final int PORT = 6969;
+    public static String ripeOrNot = "no ripe";
 
     public SocketClient(String requestType, String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", PORT);
@@ -56,6 +57,10 @@ public class SocketClient {
 
         String receivedMessage = (String)inStream.readObject();
         System.out.println(receivedMessage);
+
+        if(receivedMessage.equals("Harvegetable")){
+            ripeOrNot = "ripe";
+        }
 
         if(receivedMessage.equals("Current Conditions:")){
             String receivedMessage1 = (String)inStream.readObject();

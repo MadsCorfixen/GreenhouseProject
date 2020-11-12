@@ -21,6 +21,7 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JButton exitAndSaveButton;
     private JLabel welcomeLabel;
     private JLabel welcomeInfo;
+    private JLabel harvestInfo;
 
     public ClientGUI() {
         LocalDate localDate = LocalDate.now();
@@ -34,6 +35,7 @@ public class ClientGUI extends JFrame implements ActionListener {
         seePlantsButton = new JButton("See Plants");
         getLogButton = new JButton("Get Log");
         exitAndSaveButton = new JButton("Exit and save!");
+        harvestInfo = new JLabel("You have " + SocketClient.ripeOrNot + " plants!");
         panel = new JPanel(new GridBagLayout());
 
 
@@ -62,13 +64,14 @@ public class ClientGUI extends JFrame implements ActionListener {
         constraints.gridy = 0;
         panel.add(welcomeInfo, constraints);
 
-        constraints.gridx = 1;
         constraints.gridy = 1;
         panel.add(seePlantsButton, constraints);
 
-        constraints.gridx = 1;
         constraints.gridy = 2;
         panel.add(getLogButton, constraints);
+
+        constraints.gridy = 3;
+        panel.add(harvestInfo, constraints);
 
 
         alterConditionsButton.addActionListener(this);

@@ -2,11 +2,13 @@ package com.greenhouse.ServerSide;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlantList implements Serializable {
-    static int MAX_PLANTS = 69;
+    static int counter = 0;
+    private static final long serialVersionUID = -4108359164431780327L;
     public ArrayList<Plant> listOfPlants = new ArrayList<>();
 
     // A method to add a plant object to the arraylist
@@ -38,7 +40,11 @@ public class PlantList implements Serializable {
             liste.add(String.valueOf(listOfPlants.get(i).getPlantType()));
             liste.add(String.valueOf(listOfPlants.get(i).getHarvestDate()));
             liste.add(String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
+            if(LocalDate.now().compareTo(listOfPlants.get(i).getHarvestDate()) >= 0) {
+                counter += 1;
+            }
         }
+        System.out.println(counter);
         return liste;
     }
 }
