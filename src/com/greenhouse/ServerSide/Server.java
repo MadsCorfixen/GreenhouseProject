@@ -60,16 +60,14 @@ public class Server implements Serializable{
                 int receivedPrefTemp = (int) inStream.readObject();
 
                 Plant plant = new Plant(receivedPlantType, receivedHarvestDate, receivedPrefTemp);
-                listOfPlants.addPlant(plant);
-
                 try {
+                    listOfPlants.addPlant(plant);
                     add_log.logger.info("Plant with Type: " + receivedPlantType + ", Harvest Date: " + receivedHarvestDate
                     + ", Preferred Temp: " + receivedPrefTemp + " has been added to plant list");
+                    outStream.writeObject("Plant has been added to your greenhouse :-)");
                 } catch (Exception e) {
-                    System.out.println("Log has not been found");
+                    System.out.println("Plant was not added to your greenhouse :-(");
                 }
-
-                outStream.writeObject("Plant has been added to your greenhouse :-)");
             }
 
             if (requestType.equals("removePlant")) {
@@ -77,12 +75,11 @@ public class Server implements Serializable{
 
                 try {
                     add_log.logger.info("PlantID: " + plantID + " has been removed from: " + listOfPlants.getListOfPlants().toString());
+                    listOfPlants.removePlant(plantID);
+                    outStream.writeObject("Plant " + plantID + " has been removed.");
                 } catch (Exception e) {
-                    System.out.println("Log has not been found");
+                    System.out.println("Plant was not Removed");
                 }
-
-                listOfPlants.removePlant(plantID);
-                outStream.writeObject("Plant " + plantID + " has been removed.");
             }
 
             if (requestType.equals("getPlants")) {
@@ -103,14 +100,24 @@ public class Server implements Serializable{
             // Conditions
             if (requestType.equals("changeTemperature")){
                 double temperature = (double) inStream.readObject();
-                currentConditions.setTemperature(temperature);
-                outStream.writeObject("Temperature was set to " + currentConditions.getTemperature() + ".");
+                try {
+                    currentConditions.setTemperature(temperature);
+                    add_log.logger.info("Temperature was set to: " + temperature);
+                    outStream.writeObject("Temperature was set to " + currentConditions.getTemperature() + ".");
+                } catch (Exception e) {
+                    System.out.println("Temperature was not set");
+                }
             }
 
             if (requestType.equals("changeHumidity")){
                 double humidity = (double) inStream.readObject();
-                currentConditions.setHumidity(humidity);
-                outStream.writeObject("Humidity was set to " + currentConditions.getHumidity() + ".");
+                try {
+                    currentConditions.setHumidity(humidity);
+                    add_log.logger.info("Humidity was set to: " + humidity);
+                    outStream.writeObject("Humidity was set to " + currentConditions.getHumidity() + ".");
+                } catch (Exception e) {
+                    System.out.println("Humidity was not set");
+                }
             }
 
             if (requestType.equals("getConditions")){
@@ -124,13 +131,24 @@ public class Server implements Serializable{
             }
 
             if (requestType.equals("startWatering")) {
-                currentConditions.setWatering(true);
-                outStream.writeObject("Watering was started.");
+                try {
+                    currentConditions.setWatering(true);
+                    add_log.logger.warning("The Greenhouse has begun watering");
+                    outStream.writeObject("Watering was started.");
+                } catch (Exception e) {
+                    System.out.println("Watering was not started");
+                    outStream.writeObject("Watering was not started.");
+                }
             }
 
             if (requestType.equals("stopWatering")) {
-                currentConditions.setWatering(false);
-                outStream.writeObject("Watering was stopped.");
+                try {
+                    currentConditions.setWatering(true);
+                    add_log.logger.warning("The Greenhouse has begun watering");
+                    outStream.writeObject("Watering was stopped.");
+                } catch (Exception e) {
+                    System.out.println("Watering was not started");
+                }
             }
 
 
@@ -138,20 +156,16 @@ public class Server implements Serializable{
             if (requestType.equals("exitAndSave")){
                 try {
                     add_log.logger.info("GUI EXIT --- Changes have been saved");
-                } catch (Exception e) {
-                    System.out.println("Log has not been found");
-                }
-
-                try {
                     FileOutputStream fileOut = new FileOutputStream("PlantList.ser");
                     ObjectOutputStream out = new ObjectOutputStream(fileOut);
                     out.writeObject(listOfPlants);
                     out.close();
                     fileOut.close();
+                    outStream.writeObject("Changes have been saved and server is closing");
                 } catch (IOException i) {
                     i.printStackTrace();
                 }
-                outStream.writeObject("Changes have been saved and server is closing");
+
                 break;
             }
         }
