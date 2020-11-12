@@ -144,10 +144,10 @@ public class Server implements Serializable{
             if (requestType.equals("stopWatering")) {
                 try {
                     currentConditions.setWatering(true);
-                    add_log.logger.warning("The Greenhouse has begun watering");
+                    add_log.logger.warning("The Greenhouse has stopped watering");
                     outStream.writeObject("Watering was stopped.");
                 } catch (Exception e) {
-                    System.out.println("Watering was not started");
+                    System.out.println("Watering was not stopped");
                 }
             }
 
