@@ -22,12 +22,12 @@ public class PlantList implements Serializable {
 
     //Method to remove a plant objet from the arraylist
     public void removePlant(int plantID){
-        try {
+        if (plantID > listOfPlants.size()){
+            throw new IllegalArgumentException("ID must be smaller than list length");
+        }
+        else{
             listOfPlants.remove(plantID);
             System.out.println("Plant has been successfully removed!");
-        }
-        catch (Exception e){
-            e.printStackTrace();
         }
     }
 

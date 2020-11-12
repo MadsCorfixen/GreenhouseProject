@@ -89,13 +89,13 @@ public class Server implements Serializable{
 
             if (requestType.equals("removePlant")) {
                 int plantID = (int) inStream.readObject();
-
                 try {
-                    add_log.logger.info("PlantID: " + plantID + " has been removed from: " + listOfPlants.getListOfPlants().toString());
                     listOfPlants.removePlant(plantID);
+                    add_log.logger.info("PlantID: " + plantID + " has been removed from: " + listOfPlants.getListOfPlants().toString());
                     outStream.writeObject("Plant " + plantID + " has been removed.");
-                } catch (Exception e) {
-                    System.out.println("Plant was not Removed");
+                } catch (IllegalArgumentException e) {
+                    outStream.writeObject("Plant " + plantID + " does not exist!");
+                    e.printStackTrace();
                 }
             }
 
