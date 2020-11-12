@@ -29,3 +29,41 @@ Nov 10, 2020 3:03:18 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
 Nov 10, 2020 3:10:24 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
+nov. 12, 2020 8:54:52 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 8:56:16 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 8:56:16 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 8:58:09 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 8:58:23 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 8:58:23 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 9:04:44 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 9:05:19 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 9:05:19 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 9:05:23 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 9:05:35 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 9:05:35 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 9:06:13 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 9:06:22 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 9:06:22 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 12, 2020 9:06:58 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 9:07:41 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 12, 2020 9:07:50 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 12, 2020 9:07:50 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed

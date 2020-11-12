@@ -39,7 +39,6 @@ public class PlantList implements Serializable {
             liste.add(String.valueOf(listOfPlants.get(i).getHarvestDate()));
             liste.add(String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
         }
-        System.out.println(liste);
         return liste;
     }
 }

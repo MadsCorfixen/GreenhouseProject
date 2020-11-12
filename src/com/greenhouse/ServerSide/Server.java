@@ -91,13 +91,8 @@ public class Server implements Serializable{
 
             if (requestType.equals("getLog")) {
                 File file = new File("log.txt");
-                Scanner reader = new Scanner(file);
-                while (reader.hasNextLine()) {
-                    String data = reader.nextLine();
-                    System.out.println(data);
-                }
-                reader.close();
                 outStream.writeObject("Here is list");
+                outStream.writeObject(file);
             }
 
             // Conditions

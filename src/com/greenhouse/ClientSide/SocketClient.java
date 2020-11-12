@@ -1,10 +1,12 @@
 package com.greenhouse.ClientSide;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class SocketClient {
 
@@ -62,6 +64,17 @@ public class SocketClient {
             System.out.println("Humidity: " + Math.round(Double.parseDouble(receivedMessage2) * 100.0) / 100.0 + "%");
             String receivedMessage3 = (String)inStream.readObject();
             System.out.println("Is watering? " + receivedMessage3);
+        }
+
+        if(receivedMessage.equals("Here is list")){
+            System.out.println("Sucessfully entered if statement");
+            File receivedFile = (File)inStream.readObject();
+            Scanner reader = new Scanner(receivedFile);
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                System.out.println(data);
+            }
+            reader.close();
         }
 
         outStream.close();
