@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Server implements Serializable{
 
     public static final int PORT = 6969;
-    PlantList listOfPlants = new PlantList();
+    PlantList listOfPlants = PlantList.getInstance();
     int minTemp = -20;
     int maxTemp = 60;
     double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp;
@@ -78,7 +78,7 @@ public class Server implements Serializable{
                     plant.setPreferredTemperature(receivedPrefTemp);
                     listOfPlants.addPlant(plant);
                     add_log.logger.info("Plant with Type: " + receivedPlantType + ", Harvest Date: " + receivedHarvestDate
-                    + ", Preferred Temp: " + receivedPrefTemp + " has been added to plant list");
+                            + ", Preferred Temp: " + receivedPrefTemp + " has been added to plant list");
                     outStream.writeObject("Plant has been added to your greenhouse :-)");
                 } catch (IllegalArgumentException e) {
                     outStream.writeObject("Plant was not added to your greenhouse :-(, either date is in the past or " +

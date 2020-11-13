@@ -6,9 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlantList implements Serializable {
+    private static final PlantList instance = new PlantList();
     static int counter = 0;
     private static final long serialVersionUID = -4108359164431780327L;
     public ArrayList<Plant> listOfPlants = new ArrayList<>();
+
+    private PlantList(){};
+
+    public static PlantList getInstance() {
+        return instance;
+    }
 
     // A method to add a plant object to the arraylist
     public void addPlant(Plant plant){
@@ -24,9 +31,6 @@ public class PlantList implements Serializable {
     public void removePlant(int plantID){
         if (plantID > listOfPlants.size()){
             throw new IllegalArgumentException("ID must be smaller than list length");
-        }
-        else if (plantID < 0) {
-            throw new IllegalArgumentException("ID must be bigger than 0");
         }
         else{
             listOfPlants.remove(plantID);
