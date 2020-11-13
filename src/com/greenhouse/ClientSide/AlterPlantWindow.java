@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class AlterPlantWindow extends JFrame implements ActionListener {
 
@@ -26,6 +27,8 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
 
     public AlterPlantWindow() {
+        LocalDate localDate = LocalDate.now();
+
         plantWindow = new JFrame();
 
         addPlantButton = new JButton("Add plant");
@@ -36,18 +39,18 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         plantHarvestDateLabel = new JLabel("Harvest date:");
         plantPrefTempLabel = new JLabel("Preferred temperature:");
 
-        plantTypeField = new JTextField(10);
-        plantHarvestDateField = new JTextField(10);
-        plantPrefTempField = new JTextField(10);
-        idOfPlantField = new JTextField(10);
+        plantTypeField = new JTextField(12);
+        plantHarvestDateField = new JTextField(12);
+        plantPrefTempField = new JTextField(12);
+        idOfPlantField = new JTextField(12);
 
         plantPanel = new JPanel(new GridBagLayout());
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10,10,10,10);
+        constraints.insets = new Insets(30,25,15,25);
 
-        plantPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        plantPanel.setBorder(BorderFactory.createEmptyBorder(20, 75, 10, 75));
         constraints.gridx = 0;
         constraints.gridy = 0;
         plantPanel.add(plantLabel, constraints);
@@ -68,6 +71,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         plantPanel.add(plantHarvestDateLabel, constraints);
 
         constraints.gridx = 1;
+        plantHarvestDateField.setText(localDate.toString());
         plantPanel.add(plantHarvestDateField, constraints);
 
         constraints.gridy = 3;
@@ -89,6 +93,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         constraints.gridheight = 1;
 
         plantWindow.add(plantPanel, BorderLayout.CENTER);
+        plantWindow.setSize(800,600);
         plantWindow.setTitle("Alter Plant Window");
         plantWindow.pack();
         plantWindow.setVisible(true);
