@@ -9,9 +9,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class SocketClient {
-
     private static final int PORT = 6969;
-    public static String ripeOrNot = "no ripe";
 
     public SocketClient(String requestType, String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", PORT);
