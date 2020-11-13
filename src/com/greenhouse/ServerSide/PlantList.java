@@ -25,6 +25,9 @@ public class PlantList implements Serializable {
         if (plantID > listOfPlants.size()){
             throw new IllegalArgumentException("ID must be smaller than list length");
         }
+        else if (plantID < 0) {
+            throw new IllegalArgumentException("ID must be bigger than 0");
+        }
         else{
             listOfPlants.remove(plantID);
             System.out.println("Plant has been successfully removed!");
