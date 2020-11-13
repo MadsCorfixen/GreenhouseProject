@@ -186,23 +186,3 @@ Nov 13, 2020 10:26:51 AM com.greenhouse.ServerSide.Server <init>
 INFO: GUI EXIT --- Changes have been saved
 Nov 13, 2020 10:26:51 AM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
-nov. 13, 2020 1:50:44 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 13, 2020 1:50:57 PM com.greenhouse.ServerSide.Server <init>
-INFO: Plant with Type: Tomato, Harvest Date: 2020-12-12, Preferred Temp: 20 has been added to plant list
-nov. 13, 2020 1:51:15 PM com.greenhouse.ServerSide.Server <init>
-INFO: Temperature was set to: 30.0 ℃
-nov. 13, 2020 1:51:16 PM com.greenhouse.ServerSide.Server <init>
-INFO: Humidity was set to: 80.0%
-nov. 13, 2020 1:51:17 PM com.greenhouse.ServerSide.Server <init>
-WARNING: The Greenhouse has begun watering
-nov. 13, 2020 1:51:38 PM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 13, 2020 1:51:38 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
-nov. 13, 2020 1:53:10 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Connection Open
-nov. 13, 2020 1:53:20 PM com.greenhouse.ServerSide.Server <init>
-INFO: GUI EXIT --- Changes have been saved
-nov. 13, 2020 1:53:20 PM com.greenhouse.ServerSide.Server <init>
-INFO: Server Closed
