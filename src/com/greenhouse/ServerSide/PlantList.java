@@ -6,9 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlantList implements Serializable {
+    private static final PlantList instance = new PlantList();
     static int counter = 0;
     private static final long serialVersionUID = -4108359164431780327L;
     public ArrayList<Plant> listOfPlants = new ArrayList<>();
+
+    private PlantList(){};
+
+    public static PlantList getInstance() {
+        return instance;
+    }
 
     // A method to add a plant object to the arraylist
     public void addPlant(Plant plant){

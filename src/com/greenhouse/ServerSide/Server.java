@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Server implements Serializable{
 
     public static final int PORT = 6969;
-    PlantList listOfPlants = new PlantList();
+    PlantList listOfPlants = PlantList.getInstance();
     int minTemp = -20;
     int maxTemp = 60;
     double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp;
