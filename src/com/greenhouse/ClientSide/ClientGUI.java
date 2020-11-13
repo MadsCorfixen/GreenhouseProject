@@ -83,7 +83,7 @@ public class ClientGUI extends JFrame implements ActionListener {
 
         mainWindow.add(panel, BorderLayout.CENTER);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainWindow.setTitle("Our GUI");
+        mainWindow.setTitle("Greenhouse 302");
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
