@@ -248,3 +248,17 @@ Nov 13, 2020 1:26:07 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
 Nov 15, 2020 3:26:33 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
+Nov 16, 2020 7:22:24 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 16, 2020 7:24:14 PM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Money, Harvest Date: 2020-12-24, Preferred Temp: 50 has been added to plant list
+Nov 16, 2020 7:24:40 PM com.greenhouse.ServerSide.Server <init>
+WARNING: The Greenhouse has begun watering
+Nov 16, 2020 7:24:42 PM com.greenhouse.ServerSide.Server <init>
+WARNING: The Greenhouse has stopped watering
+Nov 16, 2020 7:25:55 PM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: rhododendron, Harvest Date: 2021-01-01, Preferred Temp: 33 has been added to plant list
+Nov 16, 2020 7:47:44 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+Nov 16, 2020 7:49:10 PM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open

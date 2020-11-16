@@ -10,24 +10,35 @@ import java.util.Scanner;
 public class Server implements Serializable{
 
     public static final int PORT = 6969;
-    PlantList listOfPlants = PlantList.getInstance();
+    PlantList listOfPlants = PlantList.getInstance(); //Since the Plantlist is a singleton, we use .getInstance.
     int minTemp = -20;
     int maxTemp = 60;
-    double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp;
+    double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp; //Random simulation of todays temperature
     int minHum = 0;
     int maxHum = 100;
-    double todayHum = Math.random() * (maxHum - minHum + 1) + minHum;
+    double todayHum = Math.random() * (maxHum - minHum + 1) + minHum; //Random simulation of todays humidity
     public Log add_log = new Log();
-    boolean alreadyExecuted = false;
-
+    boolean alreadyExecuted = false; //Bruger vi den her?
     Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
+    /**
+     * The main method that runs the Server constructor/method??
+     * @param args
+     * @throws Exception in case something goes wrong when running main method
+     */
     public static void main(String[] args) throws Exception{
         new Server();
     }
 
+    /**
+     * In this method/constructor? The ServerSocket is instantiated on port 6969.
+     * @throws IOException in case some input or output goes wrong in the method.
+     * @throws ClassNotFoundException in case of a specific class being requested for the method cannot be found.
+     */
     public Server() throws IOException, ClassNotFoundException {
         ServerSocket server = new ServerSocket(PORT);
+
+        //Instead of throwing, we here try to catch an exception if the add_log.logger.info fails.
         try {
             add_log.logger.info("Server Connection Open");
         } catch (Exception e) {
@@ -48,14 +59,22 @@ public class Server implements Serializable{
             return;
         }
 
+        /**
+         * while true makes sure that the ...
+         *
+         * Here we also declare an Object Output and Input Stream, for sending and receiving objects and strings,
+         * from the Server to/from the Client. Different request types executes different things.
+         */
         while (true) {
             Socket socket = server.accept();
 
             ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
+            //Reads the request type received through the ObjectInputStream
             String requestType = (String)inStream.readObject();
 
+            //Check Ripeness Button
             if (requestType.equals("checkRipeness")) {
                 if (listOfPlants.getIfHarvestable() > 0) {
                     outStream.writeObject("There is at least one ripe plant!");
@@ -65,7 +84,7 @@ public class Server implements Serializable{
                 }
             }
 
-
+            //Alter Plants Window
             if (requestType.equals("addPlant")) {
                 String receivedPlantType = (String) inStream.readObject();
                 LocalDate receivedHarvestDate = (LocalDate) inStream.readObject();
@@ -99,17 +118,19 @@ public class Server implements Serializable{
                 }
             }
 
+            //Get Plants Button
             if (requestType.equals("getPlants")) {
                 outStream.writeObject(listOfPlants.getListOfPlants().toString());
             }
 
+            //Get Log Button
             if (requestType.equals("getLog")) {
                 File file = new File("log.txt");
                 outStream.writeObject("Here is the list:");
                 outStream.writeObject(file);
             }
 
-            // Conditions
+            // Conditions Window
             if (requestType.equals("changeTemperature")){
                 double temperature = (double) inStream.readObject();
                 try {
@@ -164,8 +185,7 @@ public class Server implements Serializable{
                 }
             }
 
-
-            // Exit and Save
+            // Exit and Save Button
             if (requestType.equals("exitAndSave")){
                 try {
                     add_log.logger.info("GUI EXIT --- Changes have been saved");
@@ -182,6 +202,11 @@ public class Server implements Serializable{
                 break;
             }
         }
+
+        /**
+         * When the while(true) loop breaks in line 203, the server closes and we try to add to the log, that this
+         * has happend.
+         */
         server.close();
         try {
             add_log.logger.info("Server Closed");
