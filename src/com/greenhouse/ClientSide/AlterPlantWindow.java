@@ -27,7 +27,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
 
     public AlterPlantWindow() {
-        LocalDate localDate = LocalDate.now();
+        LocalDate localDate = LocalDate.now().plusDays(1);
 
         plantWindow = new JFrame();
 

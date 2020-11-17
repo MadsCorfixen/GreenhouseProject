@@ -262,3 +262,13 @@ Nov 16, 2020 7:47:44 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
 Nov 16, 2020 7:49:10 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
+nov. 17, 2020 8:32:58 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
+nov. 17, 2020 8:34:24 AM com.greenhouse.ServerSide.Server <init>
+INFO: Plant with Type: Dragonfruit, Harvest Date: 2020-12-17, Preferred Temp: 37 has been added to plant list
+nov. 17, 2020 8:34:30 AM com.greenhouse.ServerSide.Server <init>
+INFO: GUI EXIT --- Changes have been saved
+nov. 17, 2020 8:34:30 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Closed
+nov. 17, 2020 8:36:38 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open
