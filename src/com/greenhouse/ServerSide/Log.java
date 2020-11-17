@@ -11,11 +11,17 @@ public class Log {
     public FileHandler fh;
     private final static String file_name = "log.txt";
 
+    // log function that has throw IOException
     public Log() throws IOException {
+
+        // checking if the logging file does not exist
+        // if not create new file
         File f = new File(file_name);
         if(!f.exists()){
             f.createNewFile();
         }
+
+        //TODO delete line26
         fh = new FileHandler(file_name, true);
         logger = Logger.getLogger("test");
         logger.addHandler(fh);
