@@ -38,12 +38,11 @@ public class ClientGUI extends JFrame implements ActionListener {
         ripeButton = new JButton("Check Ripeness");
         panel = new JPanel(new GridBagLayout());
 
-
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10,10,10,10);
+        constraints.insets = new Insets(30,25,25,25);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 75, 25, 75));
         constraints.gridx = 0;
         constraints.gridy = 0;
         panel.add(welcomeLabel, constraints);
