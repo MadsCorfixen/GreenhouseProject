@@ -248,3 +248,5 @@ Nov 13, 2020 1:26:07 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Closed
 nov. 13, 2020 2:12:41 PM com.greenhouse.ServerSide.Server <init>
 INFO: Server Connection Open
+Nov 17, 2020 8:55:22 AM com.greenhouse.ServerSide.Server <init>
+INFO: Server Connection Open

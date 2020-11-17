@@ -106,26 +106,27 @@ public class AlterConditionWindow extends JFrame implements ActionListener {
                 conditionsError.printStackTrace();
             }
         }
+
         if(e.getSource() == changeTempButton) {
             try {
                 String requestType = "changeTemperature";
                 double temperature = Double.parseDouble(condTempField.getText());
                 new SocketClient(requestType, temperature);
-            }
-            catch (IOException | ClassNotFoundException temperatureError){
-                temperatureError.printStackTrace();
+            } catch (Exception temperatureError){
+                System.out.println("Could not change the temperature, please check input.");
             }
         }
+
         else if (e.getSource() == changeHumButton) {
             try {
                 String requestType = "changeHumidity";
                 double humidity = Double.parseDouble(condHumField.getText());
                 new SocketClient(requestType, humidity);
-            }
-            catch (IOException | ClassNotFoundException humidityError){
-                humidityError.printStackTrace();
+            } catch (Exception humidityError){
+                System.out.println("Could not change the humidity, please check input.");
             }
         }
+
         else if (e.getSource() == startWaterButton) {
             try {
                 String requestType = "startWatering";
