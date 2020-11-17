@@ -1,14 +1,11 @@
 package com.greenhouse.ClientSide;
 
-import com.greenhouse.ServerSide.Plant;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class AlterPlantWindow extends JFrame implements ActionListener {
     //JFrame and JButton
@@ -29,36 +26,37 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
     public AlterPlantWindow() {
         LocalDate localDate = LocalDate.now().plusDays(1);
 
-        // create a new frame to store text field and button with name plantWindow
+        // Create a new frame to store text field and button with name plantWindow
         plantWindow = new JFrame();
 
-        // create a new buttons
+        // Create new buttons
         addPlantButton = new JButton("Add plant");
         harvestPlantButton = new JButton("Harvest Plant with ID:");
 
-        // create a label to display text
+        // Create labels to display text
         plantLabel = new JLabel("Enter info on the plant");
         plantTypeLabel = new JLabel("Plant type:");
         plantHarvestDateLabel = new JLabel("Harvest date:");
         plantPrefTempLabel = new JLabel("Preferred temperature:");
 
-        //todo
+        // Create fields for the user to write in, with width 12
         plantTypeField = new JTextField(12);
         plantHarvestDateField = new JTextField(12);
         plantPrefTempField = new JTextField(12);
         idOfPlantField = new JTextField(12);
 
-        // create a panel to add buttons and a specific layout
+        // Create a panel to add buttons and a specific layout
         plantPanel = new JPanel(new GridBagLayout());
 
-        //todo
+        // Creates a grid, fills from the left, and padding.
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
         constraints.insets = new Insets(30,25,15,25);
 
-        // add buttons and textfield to panel
-        // place and size for components
+        // Set the border from the frame and make a border object
         plantPanel.setBorder(BorderFactory.createEmptyBorder(20, 75, 10, 75));
+
+        // Place for components
         constraints.gridx = 0;
         constraints.gridy = 0;
         plantPanel.add(plantLabel, constraints);
@@ -100,10 +98,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
 
-        /* Create and set up the window
-        and setting close operation
-        thereafter display the window
-         */
+        // Create and set up the window and setting close operation thereafter display the window
         plantWindow.add(plantPanel, BorderLayout.CENTER);
         plantWindow.setSize(800,600);
         plantWindow.setTitle("Alter Plant Window");
@@ -112,7 +107,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
     }
 
     @Override
-    //  This gets called when button is clicked after that client send a request to the  socketClient
+    // This gets called when button is clicked after that client send a request to the SocketClient
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == addPlantButton) {
             try {

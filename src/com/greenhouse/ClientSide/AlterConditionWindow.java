@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.time.LocalDate;
+
 
 public class AlterConditionWindow extends JFrame implements ActionListener {
     //JFrame and JButton
@@ -30,25 +30,25 @@ public class AlterConditionWindow extends JFrame implements ActionListener {
         startWaterButton = new JButton("Start Watering");
         stopWaterButton = new JButton("Stop Watering");
 
-        // create textfiel and spcify the place
+        // create textfield and specify the place
         condTempField = new JTextField(10);
         condHumField = new JTextField(10);
 
-        // create a new buttons
+        // Create a new buttons
         currentConditions = new JButton("Get Current Conditions");
 
-        // create a new panel
+        // Create a new panel
         condPanel = new JPanel(new GridBagLayout());
 
-        //TODO
+        // Creates a grid, fills from the left, and padding.
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10,10,10,10);
+        constraints.insets = new Insets(30,25,15,25);
 
-        //set the border from the frame and make a border object
-        condPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        // Set the border from the frame and make a border object
+        condPanel.setBorder(BorderFactory.createEmptyBorder(20, 75, 10, 75));
 
-        // place and size for components
+        // Place for components and adding listeners
         constraints.gridx = 0;
         constraints.gridy = 0;
         condPanel.add(currentConditions, constraints);
@@ -83,10 +83,7 @@ public class AlterConditionWindow extends JFrame implements ActionListener {
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
 
-        /* Create and set up the window
-        and setting close operation
-        thereafter display the window
-         */
+        // Create and set up the window and setting close operation thereafter display the window
         condWindow.add(condPanel, BorderLayout.CENTER);
         condWindow.setTitle("Alter Condition Window");
         condWindow.pack();
@@ -95,7 +92,7 @@ public class AlterConditionWindow extends JFrame implements ActionListener {
 
 
     @Override
-    //  This gets called when button is clicked after that client send a request to the  socketClient
+    //  This gets called when button is clicked after that client send a request to the SocketClient
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == currentConditions){
             try {
