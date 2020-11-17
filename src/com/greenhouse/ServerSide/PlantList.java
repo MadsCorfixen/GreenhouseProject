@@ -6,18 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlantList implements Serializable {
+    // Creates instance of the plant list
     private static final PlantList instance = new PlantList();
     static int counter = 0;
+    // Assign serializable ID
     private static final long serialVersionUID = -4108359164431780327L;
     public ArrayList<Plant> listOfPlants = new ArrayList<>();
 
+    /**
+     * Constructor for PlantList
+     */
     private PlantList(){};
 
+    /**
+     * Getter
+     * @return: Instance of PlantList
+     */
     public static PlantList getInstance() {
         return instance;
     }
 
-    // A method to add a plant object to the arraylist
+    /**
+     * A method to add a plant object to the arraylist
+     * @param plant: Plant, object to be added to list of plants
+     */
     public void addPlant(Plant plant){
         try {
             listOfPlants.add(plant);
@@ -27,7 +39,10 @@ public class PlantList implements Serializable {
         }
     }
 
-    //Method to remove a plant objet from the arraylist
+    /**
+     * Method to remove a plant objet from the list of plants
+     * @param plantID: int, plantID
+     */
     public void removePlant(int plantID){
         if (plantID > listOfPlants.size()){
             throw new IllegalArgumentException("ID must be smaller than list length");
@@ -38,7 +53,10 @@ public class PlantList implements Serializable {
         }
     }
 
-    //Method that utilizes a for loop to print each attribute for every plant object in the arraylist
+    /**
+     * Method that utilizes a for loop to print each attribute for every plant object in the list of plants
+     * @return list of plants
+     */
     public List getListOfPlants(){
         ArrayList<String> liste = new ArrayList<>();
         for (int i = 0; i < listOfPlants.size(); i++) {
@@ -49,6 +67,11 @@ public class PlantList implements Serializable {
         }
         return liste;
     }
+
+    /**
+     * Method to know if plants are ready for harvest.
+     * @return int, 0 if no plants ready, > 0 if at least one plant ready.
+     */
     public int getIfHarvestable(){
         for (int i = 0; i < listOfPlants.size(); i++) {
             if (listOfPlants.get(i).getHarvestDate().compareTo(LocalDate.now()) <= 0) {

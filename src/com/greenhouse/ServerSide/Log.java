@@ -15,8 +15,7 @@ public class Log {
      */
     public Log() throws IOException {
 
-        // checking if the logging file does not exist
-        // if not create new file
+        // Checking if the logging file does not exist if not create new file
         File f = new File(file_name);
         if(!f.exists()){
             f.createNewFile();

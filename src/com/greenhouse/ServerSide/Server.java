@@ -8,21 +8,19 @@ import java.time.LocalDate;
 public class Server implements Serializable{
 
     private static final int PORT = 6969;
-    PlantList listOfPlants = PlantList.getInstance(); //Since the Plantlist is a singleton, we use .getInstance.
+    // Since the PlantList is a singleton, we use .getInstance.
+    PlantList listOfPlants = PlantList.getInstance();
     int minTemp = -20;
     int maxTemp = 60;
-    double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp; //Random simulation of todays temperature
+    // Random simulation of today's temperature
+    double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp;
     int minHum = 0;
     int maxHum = 100;
-    double todayHum = Math.random() * (maxHum - minHum + 1) + minHum; //Random simulation of todays humidity
+    // Random simulation of today's humidity
+    double todayHum = Math.random() * (maxHum - minHum + 1) + minHum;
     public Log add_log = new Log();
     Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
-    /**
-     * The main method that runs the Server constructor/method??
-     * @param args
-     * @throws Exception in case something goes wrong when running main method
-     */
     public static void main(String[] args) throws Exception{
         new Server();
     }
@@ -35,7 +33,7 @@ public class Server implements Serializable{
     public Server() throws IOException, ClassNotFoundException {
         ServerSocket server = new ServerSocket(PORT);
 
-        //Instead of throwing, we here try to catch an exception if the add_log.logger.info fails.
+        // Instead of throwing, we here try to catch an exception if the add_log.logger.info fails.
         try {
             add_log.logger.info("Server Connection Open");
         } catch (Exception e) {
@@ -56,21 +54,20 @@ public class Server implements Serializable{
             return;
         }
 
-        /**
-         * while true makes sure that the Server doesn't close before it's called.
-         * Here we also declare an Object Output and Input Stream, for sending and receiving objects and strings,
-         * from the Server to/from the Client. Different request types executes different things.
-         */
+
+        // While true makes sure that the Server doesn't close before it's called.
+        // Here we also declare an Object Output and Input Stream, for sending and receiving objects and strings,
+        // from the Server to/from the Client. Different request types executes different things.
         while (true) {
             Socket socket = server.accept();
 
             ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-            //Reads the request type received through the ObjectInputStream
+            // Reads the request type received through the ObjectInputStream
             String requestType = (String)inStream.readObject();
 
-            //Check Ripeness Button
+            // Check Ripeness Button
             if (requestType.equals("checkRipeness")) {
                 if (listOfPlants.getIfHarvestable() > 0) {
                     outStream.writeObject("There is at least one ripe plant!");
@@ -80,7 +77,7 @@ public class Server implements Serializable{
                 }
             }
 
-            //Alter Plants Window
+            // Alter Plants Window
             if (requestType.equals("addPlant")) {
                 String receivedPlantType = (String) inStream.readObject();
                 LocalDate receivedHarvestDate = (LocalDate) inStream.readObject();
@@ -114,12 +111,12 @@ public class Server implements Serializable{
                 }
             }
 
-            //Get Plants Button
+            // Get Plants Button
             if (requestType.equals("getPlants")) {
                 outStream.writeObject(listOfPlants.getListOfPlants().toString());
             }
 
-            //Get Log Button
+            // Get Log Button
             if (requestType.equals("getLog")) {
                 File file = new File("log.txt");
                 outStream.writeObject("Here is the list:");
@@ -199,10 +196,8 @@ public class Server implements Serializable{
             }
         }
 
-        /**
-         * When the while(true) loop breaks in line 203, the server closes and we try to add to the log, that this
-         * has happend.
-         */
+
+        // When the while(true) loop breaks, the server closes.
         server.close();
         try {
             add_log.logger.info("Server Closed");
