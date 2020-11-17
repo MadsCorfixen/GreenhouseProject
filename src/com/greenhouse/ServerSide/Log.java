@@ -1,9 +1,7 @@
 package com.greenhouse.ServerSide;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.logging.*;
 
 public class Log {
@@ -11,7 +9,10 @@ public class Log {
     public FileHandler fh;
     private final static String file_name = "log.txt";
 
-    // log function that has throw IOException
+    /**
+     * Constructor for the log
+     * @throws IOException:
+     */
     public Log() throws IOException {
 
         // checking if the logging file does not exist
@@ -21,9 +22,9 @@ public class Log {
             f.createNewFile();
         }
 
-        //TODO delete line26
+        // Writes new log and appends it to the existing log in the right format
         fh = new FileHandler(file_name, true);
-        logger = Logger.getLogger("test");
+        logger = Logger.getLogger("log");
         logger.addHandler(fh);
         SimpleFormatter formatter = new SimpleFormatter();
         fh.setFormatter(formatter);

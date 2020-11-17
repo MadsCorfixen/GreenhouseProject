@@ -9,28 +9,36 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class SocketClient {
-    //socket cliient port on which it will listen
+    // Socket client port on which it will listen
     private static final int PORT = 6969;
 
-    // craete a constructor that takes requestType, plantType, arvestDate and prefTemp
-    // and throws IOException and ClassNotFoundException exceptions
+    /**
+     * Constructor for the SocketClient, acting as a socket and controller.
+     *
+     * @param requestType: String, coming from AlterPlantWindow when addPlant is called then passed to the Server.
+     * @param plantType: String, Plant type being passed to the server.
+     * @param harvestDate: LocalDate, Preferred harvest date.
+     * @param prefTemp: int, Preferred temperature.
+     * @throws IOException: Input/Output Exception, invalid argument.
+     * @throws ClassNotFoundException: Class not found, invalid class.
+     */
+
     public SocketClient(String requestType, String plantType, LocalDate harvestDate, int prefTemp) throws IOException, ClassNotFoundException {
 
-        //establish socket connection to server
+        // Establish socket connection to server
         Socket socket = new Socket("localhost", PORT);
 
         // Create input and output streams to read from and write to the server
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        //write to socket using ObjectOutputStream
+        // Write to socket using ObjectOutputStream
         outStream.writeObject(requestType);
         outStream.writeObject(plantType);
         outStream.writeObject(harvestDate);
         outStream.writeObject(prefTemp);
 
-        //receive message to server
-        //todo
+        // Receive message from server
         String receivedMessage = (String)inStream.readObject();
         System.out.println(receivedMessage);
 
@@ -39,8 +47,14 @@ public class SocketClient {
         socket.close();
     }
 
-    // craete a constructor that takes requestType and plantID
-    // and throws IOException and ClassNotFoundException exceptions
+    /**
+     * Constructor for the SocketClient, acting as a socket and controller.
+     *
+     * @param requestType: String, coming from AlterPlantWindow when removePlant is called then passed to the Server.
+     * @param plantID: int, ID of plant to be harvested.
+     * @throws IOException: Input/Output Exception, invalid argument.
+     * @throws ClassNotFoundException: Class not found, invalid class.
+     */
     public SocketClient(String requestType, int plantID) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", PORT);
 
@@ -48,12 +62,11 @@ public class SocketClient {
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        //write to socket using ObjectOutputStream
+        // Write to socket using ObjectOutputStream
         outStream.writeObject(requestType);
         outStream.writeObject(plantID);
 
-        //receive message to server
-        //todo
+        // Receive message from server
         String receivedMessage = (String)inStream.readObject();
         System.out.println(receivedMessage);
 
@@ -62,8 +75,13 @@ public class SocketClient {
         socket.close();
     }
 
-    // craete a constructor that takes requestType
-    // and throws IOException and ClassNotFoundException exceptions
+    /**
+     * Constructor for the SocketClient, acting as a socket and controller.
+     *
+     * @param requestType: String, Request coming from GUI then passed to the Server or from server to client.
+     * @throws IOException: Input/Output Exception, invalid argument.
+     * @throws ClassNotFoundException: Class not found, invalid class.
+     */
     public SocketClient(String requestType) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", PORT);
 
@@ -71,16 +89,15 @@ public class SocketClient {
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        //write to socket using ObjectOutputStream
+        // Write to socket using ObjectOutputStream
         outStream.writeObject(requestType);
 
-        //receive message to server
+        // Receive message from server
         String receivedMessage = (String)inStream.readObject();
 
         System.out.println(receivedMessage);
 
-        // print out the result we got back from the server
-        //todo
+        // Print out the result we got back from the server
         if(receivedMessage.equals("Current Conditions:")){
             String receivedMessage1 = (String)inStream.readObject();
             System.out.println("Temperature: " + Math.round(Double.parseDouble(receivedMessage1) * 100.0) / 100.0 + " \u2103");
@@ -91,7 +108,7 @@ public class SocketClient {
         }
 
 
-        // Read data from the server until we finish reading the document or client closes the connection
+        // Read data from the server until we finish reading the document
         if(receivedMessage.equals("Here is the list:")){
             File receivedFile = (File)inStream.readObject();
             Scanner reader = new Scanner(receivedFile);
@@ -99,7 +116,7 @@ public class SocketClient {
                 String data = reader.nextLine();
                 System.out.println(data);
             }
-            // close the reader, and return the results as a String
+            // Close the reader, and return the results as a String
             reader.close();
         }
 
@@ -108,6 +125,13 @@ public class SocketClient {
         socket.close();
     }
 
+    /**
+     * Constructor for the SocketClient, acting as a socket and controller.
+     * @param requestType: String, Request coming from AlterConditionWindow then passed to the Server.
+     * @param condition: double, Changes the conditions on the server.
+     * @throws IOException: Input/Output Exception, invalid argument.
+     * @throws ClassNotFoundException: Class not found, invalid class.
+     */
     public SocketClient(String requestType, double condition) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", PORT);
 
@@ -115,11 +139,11 @@ public class SocketClient {
         ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
 
-        //write to socket using ObjectOutputStream
+        // Write to socket using ObjectOutputStream
         outStream.writeObject(requestType);
         outStream.writeObject(condition);
 
-        //receive message to server
+        // Receive message from server
         String receivedMessage = (String)inStream.readObject();
         System.out.println(receivedMessage);
 
