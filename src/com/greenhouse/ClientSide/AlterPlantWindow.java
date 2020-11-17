@@ -118,10 +118,8 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
                 new SocketClient(requestType, plantType, harvestDate, prefTemp);
             } catch (Exception t) {
-            //catch (IOException | ClassNotFoundException ioException) {
                 System.out.println("Something went wrong when trying to add your plant. " +
                         "Please check all inputs.");
-                //ioException.printStackTrace();
             }
         }
         else if (e.getSource() == harvestPlantButton) {
@@ -129,9 +127,9 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
             int plantID = Integer.parseInt(idOfPlantField.getText());
             try {
                 new SocketClient(requestType, plantID);
-            }
-            catch (IOException | ClassNotFoundException ioe) {
-                ioe.printStackTrace();
+            } catch (Exception ex) {
+                System.out.println("Could not harvest the requested plant. Please check " +
+                        "if plant number is correct.");
             }
         }
     }
