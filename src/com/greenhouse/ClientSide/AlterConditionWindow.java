@@ -36,9 +36,9 @@ public class AlterConditionWindow extends JFrame implements ActionListener {
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(10,10,10,10);
+        constraints.insets = new Insets(30,25,15,25);
 
-        condPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        condPanel.setBorder(BorderFactory.createEmptyBorder(20, 75, 10, 75));
 
         constraints.gridx = 0;
         constraints.gridy = 0;
