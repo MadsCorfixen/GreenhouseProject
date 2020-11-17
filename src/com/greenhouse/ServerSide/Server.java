@@ -10,15 +10,16 @@ public class Server implements Serializable{
     private static final int PORT = 6969;
     // Since the PlantList is a singleton, we use .getInstance.
     PlantList listOfPlants = PlantList.getInstance();
-    int minTemp = -20;
-    int maxTemp = 60;
+    private final int MIN_TEMP = -20;
+    private final int MAX_TEMP = 60;
     // Random simulation of today's temperature
-    double todayTemp = Math.random() * (maxTemp - minTemp + 1) + minTemp;
-    int minHum = 0;
-    int maxHum = 100;
+    double todayTemp = Math.random() * (MAX_TEMP - MIN_TEMP + 1) + MIN_TEMP;
+    private final int MIN_HUM = 0;
+    private final int MAX_HUM = 100;
     // Random simulation of today's humidity
-    double todayHum = Math.random() * (maxHum - minHum + 1) + minHum;
-    public Log add_log = new Log();
+    public double todayHum = Math.random() * (MAX_HUM - MIN_HUM + 1) + MIN_HUM;
+
+    Log add_log = new Log();
     Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
     public static void main(String[] args) throws Exception{
@@ -32,7 +33,6 @@ public class Server implements Serializable{
      */
     public Server() throws IOException, ClassNotFoundException {
         ServerSocket server = new ServerSocket(PORT);
-
         // Instead of throwing, we here try to catch an exception if the add_log.logger.info fails.
         try {
             add_log.logger.info("Server Connection Open");
