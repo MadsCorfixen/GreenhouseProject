@@ -123,9 +123,11 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
                 int prefTemp = Integer.parseInt(plantPrefTempField.getText());
 
                 new SocketClient(requestType, plantType, harvestDate, prefTemp);
-            }
-            catch (IOException | ClassNotFoundException ioException) {
-                ioException.printStackTrace();
+            } catch (Exception t) {
+            //catch (IOException | ClassNotFoundException ioException) {
+                System.out.println("Something went wrong when trying to add your plant. " +
+                        "Please check all inputs.");
+                //ioException.printStackTrace();
             }
         }
         else if (e.getSource() == harvestPlantButton) {
