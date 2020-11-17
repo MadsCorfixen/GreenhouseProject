@@ -4,12 +4,10 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Server implements Serializable{
 
-    public static final int PORT = 6969;
+    private static final int PORT = 6969;
     PlantList listOfPlants = PlantList.getInstance(); //Since the Plantlist is a singleton, we use .getInstance.
     int minTemp = -20;
     int maxTemp = 60;
@@ -18,7 +16,6 @@ public class Server implements Serializable{
     int maxHum = 100;
     double todayHum = Math.random() * (maxHum - minHum + 1) + minHum; //Random simulation of todays humidity
     public Log add_log = new Log();
-    boolean alreadyExecuted = false; //Bruger vi den her?
     Conditions currentConditions = new Conditions(todayTemp, todayHum, false);
 
     /**
@@ -31,7 +28,7 @@ public class Server implements Serializable{
     }
 
     /**
-     * In this method/constructor? The ServerSocket is instantiated on port 6969.
+     * In this constructor, the ServerSocket is instantiated on port 6969.
      * @throws IOException in case some input or output goes wrong in the method.
      * @throws ClassNotFoundException in case of a specific class being requested for the method cannot be found.
      */
@@ -60,8 +57,7 @@ public class Server implements Serializable{
         }
 
         /**
-         * while true makes sure that the ...
-         *
+         * while true makes sure that the Server doesn't close before it's called.
          * Here we also declare an Object Output and Input Stream, for sending and receiving objects and strings,
          * from the Server to/from the Client. Different request types executes different things.
          */

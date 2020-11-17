@@ -27,8 +27,7 @@ public class AlterPlantWindow extends JFrame implements ActionListener {
 
 
     public AlterPlantWindow() {
-        //create a localDate object
-        LocalDate localDate = LocalDate.now();
+        LocalDate localDate = LocalDate.now().plusDays(1);
 
         // create a new frame to store text field and button with name plantWindow
         plantWindow = new JFrame();
