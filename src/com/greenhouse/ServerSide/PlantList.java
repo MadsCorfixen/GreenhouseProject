@@ -19,7 +19,7 @@ public class PlantList implements Serializable {
     private PlantList(){};
 
     /**
-     * Getter
+     * Private constructor for the singleton PlantList
      * @return: Instance of PlantList
      */
     public static PlantList getInstance() {
