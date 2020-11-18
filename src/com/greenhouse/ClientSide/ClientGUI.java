@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -19,6 +21,7 @@ public class ClientGUI extends JFrame implements ActionListener {
     private JLabel welcomeLabel;
     private JLabel welcomeInfo;
     private JButton ripeButton;
+    boolean alreadyExecuted;
 
     public ClientGUI() {
         LocalDate localDate = LocalDate.now();
@@ -89,10 +92,22 @@ public class ClientGUI extends JFrame implements ActionListener {
 
         // Create and set up the window and setting close operation thereafter display the window
         mainWindow.add(panel, BorderLayout.CENTER);
-        mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setTitle("Greenhouse 302");
         mainWindow.pack();
         mainWindow.setVisible(true);
+        mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Checking if the server is opened
+        try {
+            String requestType = "clientOpen";
+            new SocketClient(requestType);
+            System.out.println("Welcome to the Greenhouse :-)");
+        }
+        catch (IOException | ClassNotFoundException ioException) {
+            ioException.printStackTrace();
+            System.out.println("Hold on with doing stuff... The Server is closed. Please run the file 'Server.java' first");
+            System.exit(0);
+        }
     }
     // Main method that runs the ClientGUI constructor.
     public static void main(String[] args) {

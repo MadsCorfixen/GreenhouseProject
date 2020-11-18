@@ -35,7 +35,7 @@ public class Server implements Serializable{
         ServerSocket server = new ServerSocket(PORT);
         // Instead of throwing, we here try to catch an exception if the add_log.logger.info fails.
         try {
-            add_log.logger.info("Server Connection Open");
+            add_log.logger.info("Server Open");
         } catch (Exception e) {
             System.out.println("Log has not been found");
         }
@@ -66,6 +66,15 @@ public class Server implements Serializable{
 
             // Reads the request type received through the ObjectInputStream
             String requestType = (String)inStream.readObject();
+
+            // Client Connected
+            if (requestType.equals("clientOpen")) {
+                try {
+                    add_log.logger.info("Client Connected");
+                } catch (Exception e) {
+                    System.out.println("Log has not been found");
+                }
+            }
 
             // Check Ripeness Button
             if (requestType.equals("checkRipeness")) {
