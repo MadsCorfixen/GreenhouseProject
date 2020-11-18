@@ -95,7 +95,7 @@ public class ClientGUI extends JFrame implements ActionListener {
         mainWindow.setTitle("Greenhouse 302");
         mainWindow.pack();
         mainWindow.setVisible(true);
-        mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         // Checking if the server is opened
         try {
