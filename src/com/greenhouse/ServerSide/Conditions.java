@@ -19,19 +19,10 @@ public class Conditions implements Serializable {
         this.watering = watering;
     }
 
-    /**
-     * A getter for the temperature
-     * @return The temperature
-     */
     public double getTemperature() {
         return temperature;
     }
 
-    /**
-     * A setter for the temperature
-     * @param temperature: double, to which the temperature is to be set
-     * @throws IllegalArgumentException: if the temperature is below freezing
-     */
     public void setTemperature(double temperature) {
         if(temperature < 0 | temperature > 60){
             throw new IllegalArgumentException("Temperature must be between 0 \u2103 and 60 \u2103");
@@ -41,19 +32,10 @@ public class Conditions implements Serializable {
         }
     }
 
-    /**
-     * A getter for the humidity
-     * @return The humidity
-     */
     public double getHumidity() {
         return humidity;
     }
 
-    /**
-     * A setter for the humidity
-     * @param humidity: double, to which the humidity is to be set
-     * @throws IllegalArgumentException: if the humidity is negative
-     */
     public void setHumidity(double humidity) {
         if(humidity < 0 | humidity > 100){
             throw new IllegalArgumentException("Humidity must be non-negative and below 100%");
@@ -63,18 +45,10 @@ public class Conditions implements Serializable {
         }
     }
 
-    /**
-     * A getter to check whether the sprinklers are currently watering
-     * @return A boolean
-     */
     public boolean isWatering() {
         return watering;
     }
 
-    /**
-     * A setter to change the status of the sprinklers
-     * @param watering: boolean, which determines whether the sprinklers are on (true) or off (false)
-     */
     public void setWatering(boolean watering) {
         this.watering = watering;
     }
