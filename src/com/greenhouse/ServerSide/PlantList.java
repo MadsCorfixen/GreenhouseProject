@@ -48,10 +48,11 @@ public class PlantList implements Serializable, PlantListInterface {
     public List getListOfPlants(){
         ArrayList<String> liste = new ArrayList<>();
         for (int i = 0; i < listOfPlants.size(); i++) {
-            liste.add("ID of plant:" + String.valueOf(i));
-            liste.add(String.valueOf(listOfPlants.get(i).getPlantType()));
-            liste.add(String.valueOf(listOfPlants.get(i).getHarvestDate()));
-            liste.add(String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
+            liste.add("\nID of plant: " + String.valueOf(i));
+            liste.add("Plant Type: " + String.valueOf(listOfPlants.get(i).getPlantType()));
+            liste.add("Harvest Date: " + String.valueOf(listOfPlants.get(i).getHarvestDate()));
+            liste.add("Preferred Temperature: " +
+                    String.valueOf(listOfPlants.get(i).getPreferredTemperature()));
         }
         return liste;
     }
