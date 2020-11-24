@@ -14,13 +14,6 @@ public class Log {
      * @throws IOException:
      */
     public Log() throws IOException {
-
-        // Checking if the logging file does not exist if not create new file
-        File file = new File(file_name);
-        if(!file.exists()){
-            file.createNewFile();
-        }
-
         // Writes new log and appends it to the existing log in the right format
         fileHandler = new FileHandler(file_name, true);
         logger = Logger.getLogger("log");
